@@ -7,7 +7,13 @@ class PokemonMapper {
     return Pokemon(
       id: dto.id,
       name: dto.name,
-      imageUrl: dto.sprites.frontDefault,
+      imageUrls: [
+        dto.sprites.frontDefault,
+        dto.sprites.backDefault,
+        dto.sprites.frontShiny,
+        dto.sprites.backShiny,
+        dto.sprites.other?.officialArtwork?.frontDefault,
+      ].where((url) => url != null).map((url) => url!).toList(),
       types: dto.types.map((type) => type.type.name).toList(),
     );
   }

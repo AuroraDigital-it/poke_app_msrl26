@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:poke_app/data/berries_service.dart';
 import 'package:poke_app/data/pokemon_service.dart';
 import 'package:poke_app/domain/pokemon/pokemon.dart';
 import 'package:poke_app/pages/widget/pokemon_card.dart';
@@ -15,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   String errorMessage = '';
   final _controller = TextEditingController(text: 'pikachu');
   final PokemonService _pokemonService = PokemonService();
+  final BerriesService _berriesService = BerriesService();
   Pokemon? _pokemonResponse;
 
   @override
@@ -33,8 +37,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _loadBerry(String name) async {
-    // final berry = await getBerryFromName(name);
-    // log('Berry caricata: $berry');
+    final berry = await _berriesService.getBerryFromName(name);
+    log('Berry caricata: $berry');
   }
 
   Future<void> _loadPokemon(String name) async {

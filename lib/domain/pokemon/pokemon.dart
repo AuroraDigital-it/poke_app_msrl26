@@ -7,7 +7,7 @@ abstract class Pokemon with _$Pokemon {
   const factory Pokemon({
     required int id,
     required String name,
-    required String? imageUrl,
+    required List<String> imageUrls,
     required List<String> types,
   }) = _Pokemon;
 }
