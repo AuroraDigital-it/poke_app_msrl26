@@ -1,10 +1,7 @@
-import 'dart:developer';
-
-import 'package:poke_app/data/berries_service.dart';
-import 'package:poke_app/data/pokemon_service.dart';
-import 'package:poke_app/model/pokemon/pokemon.dart';
-import 'package:poke_app/pages/widget/pokemon_card.dart';
 import 'package:flutter/material.dart';
+import 'package:poke_app/data/pokemon_service.dart';
+import 'package:poke_app/domain/pokemon/pokemon.dart';
+import 'package:poke_app/pages/widget/pokemon_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,9 +12,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isLoading = false;
-  Pokemon? _pokemonResponse;
   String errorMessage = '';
   final _controller = TextEditingController(text: 'pikachu');
+  final PokemonService _pokemonService = PokemonService();
+  Pokemon? _pokemonResponse;
 
   @override
   initState() {
@@ -35,8 +33,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _loadBerry(String name) async {
-    final berry = await getBerryFromName(name);
-    log('Berry caricata: $berry');
+    // final berry = await getBerryFromName(name);
+    // log('Berry caricata: $berry');
   }
 
   Future<void> _loadPokemon(String name) async {
@@ -44,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       _isLoading = true;
     });
     try {
-      final pokemon = await loadPokemonByName(name);
+      final pokemon = await _pokemonService.getPokemonFromName(name);
       setState(() {
         _isLoading = false;
         _pokemonResponse = pokemon;

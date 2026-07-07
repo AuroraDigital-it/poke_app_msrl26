@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'pokemon.dart';
+part of 'pokemon_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -11,24 +11,31 @@ part of 'pokemon.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+PokemonDTO _$PokemonDTOFromJson(
+  Map<String, dynamic> json
+) {
+    return _Pokemon.fromJson(
+      json
+    );
+}
 
 /// @nodoc
-mixin _$Pokemon {
+mixin _$PokemonDTO {
 
  int get id; String get name;@JsonKey(name: 'base_experience') int? get baseExperience; int get height;@JsonKey(name: 'is_default') bool get isDefault; int get order; int get weight; List<PokemonAbility> get abilities; List<NamedApiResource> get forms;@JsonKey(name: 'game_indices') List<VersionGameIndex> get gameIndices;@JsonKey(name: 'held_items') List<PokemonHeldItem> get heldItems;@JsonKey(name: 'location_area_encounters') String get locationAreaEncounters; List<PokemonMove> get moves;@JsonKey(name: 'past_types') List<PokemonTypePast> get pastTypes; PokemonSprites get sprites; PokemonCries? get cries; NamedApiResource get species; List<PokemonStat> get stats; List<PokemonType> get types;
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$PokemonCopyWith<Pokemon> get copyWith => _$PokemonCopyWithImpl<Pokemon>(this as Pokemon, _$identity);
+$PokemonDTOCopyWith<PokemonDTO> get copyWith => _$PokemonDTOCopyWithImpl<PokemonDTO>(this as PokemonDTO, _$identity);
 
-  /// Serializes this Pokemon to a JSON map.
+  /// Serializes this PokemonDTO to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Pokemon&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.baseExperience, baseExperience) || other.baseExperience == baseExperience)&&(identical(other.height, height) || other.height == height)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.order, order) || other.order == order)&&(identical(other.weight, weight) || other.weight == weight)&&const DeepCollectionEquality().equals(other.abilities, abilities)&&const DeepCollectionEquality().equals(other.forms, forms)&&const DeepCollectionEquality().equals(other.gameIndices, gameIndices)&&const DeepCollectionEquality().equals(other.heldItems, heldItems)&&(identical(other.locationAreaEncounters, locationAreaEncounters) || other.locationAreaEncounters == locationAreaEncounters)&&const DeepCollectionEquality().equals(other.moves, moves)&&const DeepCollectionEquality().equals(other.pastTypes, pastTypes)&&(identical(other.sprites, sprites) || other.sprites == sprites)&&(identical(other.cries, cries) || other.cries == cries)&&(identical(other.species, species) || other.species == species)&&const DeepCollectionEquality().equals(other.stats, stats)&&const DeepCollectionEquality().equals(other.types, types));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PokemonDTO&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.baseExperience, baseExperience) || other.baseExperience == baseExperience)&&(identical(other.height, height) || other.height == height)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.order, order) || other.order == order)&&(identical(other.weight, weight) || other.weight == weight)&&const DeepCollectionEquality().equals(other.abilities, abilities)&&const DeepCollectionEquality().equals(other.forms, forms)&&const DeepCollectionEquality().equals(other.gameIndices, gameIndices)&&const DeepCollectionEquality().equals(other.heldItems, heldItems)&&(identical(other.locationAreaEncounters, locationAreaEncounters) || other.locationAreaEncounters == locationAreaEncounters)&&const DeepCollectionEquality().equals(other.moves, moves)&&const DeepCollectionEquality().equals(other.pastTypes, pastTypes)&&(identical(other.sprites, sprites) || other.sprites == sprites)&&(identical(other.cries, cries) || other.cries == cries)&&(identical(other.species, species) || other.species == species)&&const DeepCollectionEquality().equals(other.stats, stats)&&const DeepCollectionEquality().equals(other.types, types));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +44,15 @@ int get hashCode => Object.hashAll([runtimeType,id,name,baseExperience,height,is
 
 @override
 String toString() {
-  return 'Pokemon(id: $id, name: $name, baseExperience: $baseExperience, height: $height, isDefault: $isDefault, order: $order, weight: $weight, abilities: $abilities, forms: $forms, gameIndices: $gameIndices, heldItems: $heldItems, locationAreaEncounters: $locationAreaEncounters, moves: $moves, pastTypes: $pastTypes, sprites: $sprites, cries: $cries, species: $species, stats: $stats, types: $types)';
+  return 'PokemonDTO(id: $id, name: $name, baseExperience: $baseExperience, height: $height, isDefault: $isDefault, order: $order, weight: $weight, abilities: $abilities, forms: $forms, gameIndices: $gameIndices, heldItems: $heldItems, locationAreaEncounters: $locationAreaEncounters, moves: $moves, pastTypes: $pastTypes, sprites: $sprites, cries: $cries, species: $species, stats: $stats, types: $types)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $PokemonCopyWith<$Res>  {
-  factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) _then) = _$PokemonCopyWithImpl;
+abstract mixin class $PokemonDTOCopyWith<$Res>  {
+  factory $PokemonDTOCopyWith(PokemonDTO value, $Res Function(PokemonDTO) _then) = _$PokemonDTOCopyWithImpl;
 @useResult
 $Res call({
  int id, String name,@JsonKey(name: 'base_experience') int? baseExperience, int height,@JsonKey(name: 'is_default') bool isDefault, int order, int weight, List<PokemonAbility> abilities, List<NamedApiResource> forms,@JsonKey(name: 'game_indices') List<VersionGameIndex> gameIndices,@JsonKey(name: 'held_items') List<PokemonHeldItem> heldItems,@JsonKey(name: 'location_area_encounters') String locationAreaEncounters, List<PokemonMove> moves,@JsonKey(name: 'past_types') List<PokemonTypePast> pastTypes, PokemonSprites sprites, PokemonCries? cries, NamedApiResource species, List<PokemonStat> stats, List<PokemonType> types
@@ -56,14 +63,14 @@ $PokemonSpritesCopyWith<$Res> get sprites;$PokemonCriesCopyWith<$Res>? get cries
 
 }
 /// @nodoc
-class _$PokemonCopyWithImpl<$Res>
-    implements $PokemonCopyWith<$Res> {
-  _$PokemonCopyWithImpl(this._self, this._then);
+class _$PokemonDTOCopyWithImpl<$Res>
+    implements $PokemonDTOCopyWith<$Res> {
+  _$PokemonDTOCopyWithImpl(this._self, this._then);
 
-  final Pokemon _self;
-  final $Res Function(Pokemon) _then;
+  final PokemonDTO _self;
+  final $Res Function(PokemonDTO) _then;
 
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? baseExperience = freezed,Object? height = null,Object? isDefault = null,Object? order = null,Object? weight = null,Object? abilities = null,Object? forms = null,Object? gameIndices = null,Object? heldItems = null,Object? locationAreaEncounters = null,Object? moves = null,Object? pastTypes = null,Object? sprites = null,Object? cries = freezed,Object? species = null,Object? stats = null,Object? types = null,}) {
   return _then(_self.copyWith(
@@ -89,7 +96,7 @@ as List<PokemonStat>,types: null == types ? _self.types : types // ignore: cast_
 as List<PokemonType>,
   ));
 }
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -98,7 +105,7 @@ $PokemonSpritesCopyWith<$Res> get sprites {
   return $PokemonSpritesCopyWith<$Res>(_self.sprites, (value) {
     return _then(_self.copyWith(sprites: value));
   });
-}/// Create a copy of Pokemon
+}/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -110,7 +117,7 @@ $PokemonCriesCopyWith<$Res>? get cries {
   return $PokemonCriesCopyWith<$Res>(_self.cries!, (value) {
     return _then(_self.copyWith(cries: value));
   });
-}/// Create a copy of Pokemon
+}/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -123,8 +130,8 @@ $NamedApiResourceCopyWith<$Res> get species {
 }
 
 
-/// Adds pattern-matching-related methods to [Pokemon].
-extension PokemonPatterns on Pokemon {
+/// Adds pattern-matching-related methods to [PokemonDTO].
+extension PokemonDTOPatterns on PokemonDTO {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -256,7 +263,7 @@ return $default(_that.id,_that.name,_that.baseExperience,_that.height,_that.isDe
 /// @nodoc
 @JsonSerializable()
 
-class _Pokemon implements Pokemon {
+class _Pokemon implements PokemonDTO {
   const _Pokemon({required this.id, required this.name, @JsonKey(name: 'base_experience') this.baseExperience, required this.height, @JsonKey(name: 'is_default') required this.isDefault, required this.order, required this.weight, required final  List<PokemonAbility> abilities, required final  List<NamedApiResource> forms, @JsonKey(name: 'game_indices') required final  List<VersionGameIndex> gameIndices, @JsonKey(name: 'held_items') required final  List<PokemonHeldItem> heldItems, @JsonKey(name: 'location_area_encounters') required this.locationAreaEncounters, required final  List<PokemonMove> moves, @JsonKey(name: 'past_types') required final  List<PokemonTypePast> pastTypes, required this.sprites, this.cries, required this.species, required final  List<PokemonStat> stats, required final  List<PokemonType> types}): _abilities = abilities,_forms = forms,_gameIndices = gameIndices,_heldItems = heldItems,_moves = moves,_pastTypes = pastTypes,_stats = stats,_types = types;
   factory _Pokemon.fromJson(Map<String, dynamic> json) => _$PokemonFromJson(json);
 
@@ -328,7 +335,7 @@ class _Pokemon implements Pokemon {
 }
 
 
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -350,14 +357,14 @@ int get hashCode => Object.hashAll([runtimeType,id,name,baseExperience,height,is
 
 @override
 String toString() {
-  return 'Pokemon(id: $id, name: $name, baseExperience: $baseExperience, height: $height, isDefault: $isDefault, order: $order, weight: $weight, abilities: $abilities, forms: $forms, gameIndices: $gameIndices, heldItems: $heldItems, locationAreaEncounters: $locationAreaEncounters, moves: $moves, pastTypes: $pastTypes, sprites: $sprites, cries: $cries, species: $species, stats: $stats, types: $types)';
+  return 'PokemonDTO(id: $id, name: $name, baseExperience: $baseExperience, height: $height, isDefault: $isDefault, order: $order, weight: $weight, abilities: $abilities, forms: $forms, gameIndices: $gameIndices, heldItems: $heldItems, locationAreaEncounters: $locationAreaEncounters, moves: $moves, pastTypes: $pastTypes, sprites: $sprites, cries: $cries, species: $species, stats: $stats, types: $types)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
+abstract mixin class _$PokemonCopyWith<$Res> implements $PokemonDTOCopyWith<$Res> {
   factory _$PokemonCopyWith(_Pokemon value, $Res Function(_Pokemon) _then) = __$PokemonCopyWithImpl;
 @override @useResult
 $Res call({
@@ -376,7 +383,7 @@ class __$PokemonCopyWithImpl<$Res>
   final _Pokemon _self;
   final $Res Function(_Pokemon) _then;
 
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? baseExperience = freezed,Object? height = null,Object? isDefault = null,Object? order = null,Object? weight = null,Object? abilities = null,Object? forms = null,Object? gameIndices = null,Object? heldItems = null,Object? locationAreaEncounters = null,Object? moves = null,Object? pastTypes = null,Object? sprites = null,Object? cries = freezed,Object? species = null,Object? stats = null,Object? types = null,}) {
   return _then(_Pokemon(
@@ -403,7 +410,7 @@ as List<PokemonType>,
   ));
 }
 
-/// Create a copy of Pokemon
+/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -412,7 +419,7 @@ $PokemonSpritesCopyWith<$Res> get sprites {
   return $PokemonSpritesCopyWith<$Res>(_self.sprites, (value) {
     return _then(_self.copyWith(sprites: value));
   });
-}/// Create a copy of Pokemon
+}/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -424,7 +431,7 @@ $PokemonCriesCopyWith<$Res>? get cries {
   return $PokemonCriesCopyWith<$Res>(_self.cries!, (value) {
     return _then(_self.copyWith(cries: value));
   });
-}/// Create a copy of Pokemon
+}/// Create a copy of PokemonDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

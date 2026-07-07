@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'berry.dart';
+part of 'berry_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,23 +13,23 @@ part of 'berry.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$Berry {
+mixin _$BerryDTO {
 
  int get id; String get name;// Cerca la proprietà growth_time nella risposta JSON e mappala a growthTime
-@JsonKey(name: 'growth_time') int get growthTime;@JsonKey(name: 'max_harvest') int get maxHarvest;@JsonKey(name: 'natural_gift_power') int get naturalGiftPower; int get size; int get smoothness;@JsonKey(name: 'soil_dryness') int get soilDryness; NamedApiResource get firmness; List<BerryFlavor> get flavors; NamedApiResource get item;@JsonKey(name: 'natural_gift_type') NamedApiResource get naturalGiftType;
-/// Create a copy of Berry
+@JsonKey(name: 'growth_time') int get growthTime;@JsonKey(name: 'max_harvest') int get maxHarvest;@JsonKey(name: 'natural_gift_power') int get naturalGiftPower; int get size; int get smoothness;@JsonKey(name: 'soil_dryness') int get soilDryness; NamedApiResource get firmness; List<BerryDTOFlavor> get flavors; NamedApiResource get item;@JsonKey(name: 'natural_gift_type') NamedApiResource get naturalGiftType;
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$BerryCopyWith<Berry> get copyWith => _$BerryCopyWithImpl<Berry>(this as Berry, _$identity);
+$BerryDTOCopyWith<BerryDTO> get copyWith => _$BerryDTOCopyWithImpl<BerryDTO>(this as BerryDTO, _$identity);
 
-  /// Serializes this Berry to a JSON map.
+  /// Serializes this BerryDTO to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Berry&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.growthTime, growthTime) || other.growthTime == growthTime)&&(identical(other.maxHarvest, maxHarvest) || other.maxHarvest == maxHarvest)&&(identical(other.naturalGiftPower, naturalGiftPower) || other.naturalGiftPower == naturalGiftPower)&&(identical(other.size, size) || other.size == size)&&(identical(other.smoothness, smoothness) || other.smoothness == smoothness)&&(identical(other.soilDryness, soilDryness) || other.soilDryness == soilDryness)&&(identical(other.firmness, firmness) || other.firmness == firmness)&&const DeepCollectionEquality().equals(other.flavors, flavors)&&(identical(other.item, item) || other.item == item)&&(identical(other.naturalGiftType, naturalGiftType) || other.naturalGiftType == naturalGiftType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BerryDTO&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.growthTime, growthTime) || other.growthTime == growthTime)&&(identical(other.maxHarvest, maxHarvest) || other.maxHarvest == maxHarvest)&&(identical(other.naturalGiftPower, naturalGiftPower) || other.naturalGiftPower == naturalGiftPower)&&(identical(other.size, size) || other.size == size)&&(identical(other.smoothness, smoothness) || other.smoothness == smoothness)&&(identical(other.soilDryness, soilDryness) || other.soilDryness == soilDryness)&&(identical(other.firmness, firmness) || other.firmness == firmness)&&const DeepCollectionEquality().equals(other.flavors, flavors)&&(identical(other.item, item) || other.item == item)&&(identical(other.naturalGiftType, naturalGiftType) || other.naturalGiftType == naturalGiftType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -38,18 +38,18 @@ int get hashCode => Object.hash(runtimeType,id,name,growthTime,maxHarvest,natura
 
 @override
 String toString() {
-  return 'Berry(id: $id, name: $name, growthTime: $growthTime, maxHarvest: $maxHarvest, naturalGiftPower: $naturalGiftPower, size: $size, smoothness: $smoothness, soilDryness: $soilDryness, firmness: $firmness, flavors: $flavors, item: $item, naturalGiftType: $naturalGiftType)';
+  return 'BerryDTO(id: $id, name: $name, growthTime: $growthTime, maxHarvest: $maxHarvest, naturalGiftPower: $naturalGiftPower, size: $size, smoothness: $smoothness, soilDryness: $soilDryness, firmness: $firmness, flavors: $flavors, item: $item, naturalGiftType: $naturalGiftType)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $BerryCopyWith<$Res>  {
-  factory $BerryCopyWith(Berry value, $Res Function(Berry) _then) = _$BerryCopyWithImpl;
+abstract mixin class $BerryDTOCopyWith<$Res>  {
+  factory $BerryDTOCopyWith(BerryDTO value, $Res Function(BerryDTO) _then) = _$BerryDTOCopyWithImpl;
 @useResult
 $Res call({
- int id, String name,@JsonKey(name: 'growth_time') int growthTime,@JsonKey(name: 'max_harvest') int maxHarvest,@JsonKey(name: 'natural_gift_power') int naturalGiftPower, int size, int smoothness,@JsonKey(name: 'soil_dryness') int soilDryness, NamedApiResource firmness, List<BerryFlavor> flavors, NamedApiResource item,@JsonKey(name: 'natural_gift_type') NamedApiResource naturalGiftType
+ int id, String name,@JsonKey(name: 'growth_time') int growthTime,@JsonKey(name: 'max_harvest') int maxHarvest,@JsonKey(name: 'natural_gift_power') int naturalGiftPower, int size, int smoothness,@JsonKey(name: 'soil_dryness') int soilDryness, NamedApiResource firmness, List<BerryDTOFlavor> flavors, NamedApiResource item,@JsonKey(name: 'natural_gift_type') NamedApiResource naturalGiftType
 });
 
 
@@ -57,14 +57,14 @@ $NamedApiResourceCopyWith<$Res> get firmness;$NamedApiResourceCopyWith<$Res> get
 
 }
 /// @nodoc
-class _$BerryCopyWithImpl<$Res>
-    implements $BerryCopyWith<$Res> {
-  _$BerryCopyWithImpl(this._self, this._then);
+class _$BerryDTOCopyWithImpl<$Res>
+    implements $BerryDTOCopyWith<$Res> {
+  _$BerryDTOCopyWithImpl(this._self, this._then);
 
-  final Berry _self;
-  final $Res Function(Berry) _then;
+  final BerryDTO _self;
+  final $Res Function(BerryDTO) _then;
 
-/// Create a copy of Berry
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? growthTime = null,Object? maxHarvest = null,Object? naturalGiftPower = null,Object? size = null,Object? smoothness = null,Object? soilDryness = null,Object? firmness = null,Object? flavors = null,Object? item = null,Object? naturalGiftType = null,}) {
   return _then(_self.copyWith(
@@ -78,12 +78,12 @@ as int,smoothness: null == smoothness ? _self.smoothness : smoothness // ignore:
 as int,soilDryness: null == soilDryness ? _self.soilDryness : soilDryness // ignore: cast_nullable_to_non_nullable
 as int,firmness: null == firmness ? _self.firmness : firmness // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,flavors: null == flavors ? _self.flavors : flavors // ignore: cast_nullable_to_non_nullable
-as List<BerryFlavor>,item: null == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
+as List<BerryDTOFlavor>,item: null == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,naturalGiftType: null == naturalGiftType ? _self.naturalGiftType : naturalGiftType // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,
   ));
 }
-/// Create a copy of Berry
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ $NamedApiResourceCopyWith<$Res> get firmness {
   return $NamedApiResourceCopyWith<$Res>(_self.firmness, (value) {
     return _then(_self.copyWith(firmness: value));
   });
-}/// Create a copy of Berry
+}/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ $NamedApiResourceCopyWith<$Res> get item {
   return $NamedApiResourceCopyWith<$Res>(_self.item, (value) {
     return _then(_self.copyWith(item: value));
   });
-}/// Create a copy of Berry
+}/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -114,8 +114,8 @@ $NamedApiResourceCopyWith<$Res> get naturalGiftType {
 }
 
 
-/// Adds pattern-matching-related methods to [Berry].
-extension BerryPatterns on Berry {
+/// Adds pattern-matching-related methods to [BerryDTO].
+extension BerryDTOPatterns on BerryDTO {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -128,10 +128,10 @@ extension BerryPatterns on Berry {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Berry value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BerryDTO value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Berry() when $default != null:
+case _BerryDTO() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -150,10 +150,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Berry value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BerryDTO value)  $default,){
 final _that = this;
 switch (_that) {
-case _Berry():
+case _BerryDTO():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -171,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Berry value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BerryDTO value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Berry() when $default != null:
+case _BerryDTO() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -192,9 +192,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryDTOFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Berry() when $default != null:
+case _BerryDTO() when $default != null:
 return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.naturalGiftPower,_that.size,_that.smoothness,_that.soilDryness,_that.firmness,_that.flavors,_that.item,_that.naturalGiftType);case _:
   return orElse();
 
@@ -213,9 +213,9 @@ return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.natu
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryDTOFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)  $default,) {final _that = this;
 switch (_that) {
-case _Berry():
+case _BerryDTO():
 return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.naturalGiftPower,_that.size,_that.smoothness,_that.soilDryness,_that.firmness,_that.flavors,_that.item,_that.naturalGiftType);case _:
   throw StateError('Unexpected subclass');
 
@@ -233,9 +233,9 @@ return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.natu
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name, @JsonKey(name: 'growth_time')  int growthTime, @JsonKey(name: 'max_harvest')  int maxHarvest, @JsonKey(name: 'natural_gift_power')  int naturalGiftPower,  int size,  int smoothness, @JsonKey(name: 'soil_dryness')  int soilDryness,  NamedApiResource firmness,  List<BerryDTOFlavor> flavors,  NamedApiResource item, @JsonKey(name: 'natural_gift_type')  NamedApiResource naturalGiftType)?  $default,) {final _that = this;
 switch (_that) {
-case _Berry() when $default != null:
+case _BerryDTO() when $default != null:
 return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.naturalGiftPower,_that.size,_that.smoothness,_that.soilDryness,_that.firmness,_that.flavors,_that.item,_that.naturalGiftType);case _:
   return null;
 
@@ -247,9 +247,9 @@ return $default(_that.id,_that.name,_that.growthTime,_that.maxHarvest,_that.natu
 /// @nodoc
 @JsonSerializable()
 
-class _Berry implements Berry {
-  const _Berry({required this.id, required this.name, @JsonKey(name: 'growth_time') required this.growthTime, @JsonKey(name: 'max_harvest') required this.maxHarvest, @JsonKey(name: 'natural_gift_power') required this.naturalGiftPower, required this.size, required this.smoothness, @JsonKey(name: 'soil_dryness') required this.soilDryness, required this.firmness, required final  List<BerryFlavor> flavors, required this.item, @JsonKey(name: 'natural_gift_type') required this.naturalGiftType}): _flavors = flavors;
-  factory _Berry.fromJson(Map<String, dynamic> json) => _$BerryFromJson(json);
+class _BerryDTO implements BerryDTO {
+  const _BerryDTO({required this.id, required this.name, @JsonKey(name: 'growth_time') required this.growthTime, @JsonKey(name: 'max_harvest') required this.maxHarvest, @JsonKey(name: 'natural_gift_power') required this.naturalGiftPower, required this.size, required this.smoothness, @JsonKey(name: 'soil_dryness') required this.soilDryness, required this.firmness, required final  List<BerryDTOFlavor> flavors, required this.item, @JsonKey(name: 'natural_gift_type') required this.naturalGiftType}): _flavors = flavors;
+  factory _BerryDTO.fromJson(Map<String, dynamic> json) => _$BerryDTOFromJson(json);
 
 @override final  int id;
 @override final  String name;
@@ -261,8 +261,8 @@ class _Berry implements Berry {
 @override final  int smoothness;
 @override@JsonKey(name: 'soil_dryness') final  int soilDryness;
 @override final  NamedApiResource firmness;
- final  List<BerryFlavor> _flavors;
-@override List<BerryFlavor> get flavors {
+ final  List<BerryDTOFlavor> _flavors;
+@override List<BerryDTOFlavor> get flavors {
   if (_flavors is EqualUnmodifiableListView) return _flavors;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_flavors);
@@ -271,20 +271,20 @@ class _Berry implements Berry {
 @override final  NamedApiResource item;
 @override@JsonKey(name: 'natural_gift_type') final  NamedApiResource naturalGiftType;
 
-/// Create a copy of Berry
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$BerryCopyWith<_Berry> get copyWith => __$BerryCopyWithImpl<_Berry>(this, _$identity);
+_$BerryDTOCopyWith<_BerryDTO> get copyWith => __$BerryDTOCopyWithImpl<_BerryDTO>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$BerryToJson(this, );
+  return _$BerryDTOToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Berry&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.growthTime, growthTime) || other.growthTime == growthTime)&&(identical(other.maxHarvest, maxHarvest) || other.maxHarvest == maxHarvest)&&(identical(other.naturalGiftPower, naturalGiftPower) || other.naturalGiftPower == naturalGiftPower)&&(identical(other.size, size) || other.size == size)&&(identical(other.smoothness, smoothness) || other.smoothness == smoothness)&&(identical(other.soilDryness, soilDryness) || other.soilDryness == soilDryness)&&(identical(other.firmness, firmness) || other.firmness == firmness)&&const DeepCollectionEquality().equals(other._flavors, _flavors)&&(identical(other.item, item) || other.item == item)&&(identical(other.naturalGiftType, naturalGiftType) || other.naturalGiftType == naturalGiftType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BerryDTO&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.growthTime, growthTime) || other.growthTime == growthTime)&&(identical(other.maxHarvest, maxHarvest) || other.maxHarvest == maxHarvest)&&(identical(other.naturalGiftPower, naturalGiftPower) || other.naturalGiftPower == naturalGiftPower)&&(identical(other.size, size) || other.size == size)&&(identical(other.smoothness, smoothness) || other.smoothness == smoothness)&&(identical(other.soilDryness, soilDryness) || other.soilDryness == soilDryness)&&(identical(other.firmness, firmness) || other.firmness == firmness)&&const DeepCollectionEquality().equals(other._flavors, _flavors)&&(identical(other.item, item) || other.item == item)&&(identical(other.naturalGiftType, naturalGiftType) || other.naturalGiftType == naturalGiftType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -293,18 +293,18 @@ int get hashCode => Object.hash(runtimeType,id,name,growthTime,maxHarvest,natura
 
 @override
 String toString() {
-  return 'Berry(id: $id, name: $name, growthTime: $growthTime, maxHarvest: $maxHarvest, naturalGiftPower: $naturalGiftPower, size: $size, smoothness: $smoothness, soilDryness: $soilDryness, firmness: $firmness, flavors: $flavors, item: $item, naturalGiftType: $naturalGiftType)';
+  return 'BerryDTO(id: $id, name: $name, growthTime: $growthTime, maxHarvest: $maxHarvest, naturalGiftPower: $naturalGiftPower, size: $size, smoothness: $smoothness, soilDryness: $soilDryness, firmness: $firmness, flavors: $flavors, item: $item, naturalGiftType: $naturalGiftType)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$BerryCopyWith<$Res> implements $BerryCopyWith<$Res> {
-  factory _$BerryCopyWith(_Berry value, $Res Function(_Berry) _then) = __$BerryCopyWithImpl;
+abstract mixin class _$BerryDTOCopyWith<$Res> implements $BerryDTOCopyWith<$Res> {
+  factory _$BerryDTOCopyWith(_BerryDTO value, $Res Function(_BerryDTO) _then) = __$BerryDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name,@JsonKey(name: 'growth_time') int growthTime,@JsonKey(name: 'max_harvest') int maxHarvest,@JsonKey(name: 'natural_gift_power') int naturalGiftPower, int size, int smoothness,@JsonKey(name: 'soil_dryness') int soilDryness, NamedApiResource firmness, List<BerryFlavor> flavors, NamedApiResource item,@JsonKey(name: 'natural_gift_type') NamedApiResource naturalGiftType
+ int id, String name,@JsonKey(name: 'growth_time') int growthTime,@JsonKey(name: 'max_harvest') int maxHarvest,@JsonKey(name: 'natural_gift_power') int naturalGiftPower, int size, int smoothness,@JsonKey(name: 'soil_dryness') int soilDryness, NamedApiResource firmness, List<BerryDTOFlavor> flavors, NamedApiResource item,@JsonKey(name: 'natural_gift_type') NamedApiResource naturalGiftType
 });
 
 
@@ -312,17 +312,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$BerryCopyWithImpl<$Res>
-    implements _$BerryCopyWith<$Res> {
-  __$BerryCopyWithImpl(this._self, this._then);
+class __$BerryDTOCopyWithImpl<$Res>
+    implements _$BerryDTOCopyWith<$Res> {
+  __$BerryDTOCopyWithImpl(this._self, this._then);
 
-  final _Berry _self;
-  final $Res Function(_Berry) _then;
+  final _BerryDTO _self;
+  final $Res Function(_BerryDTO) _then;
 
-/// Create a copy of Berry
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? growthTime = null,Object? maxHarvest = null,Object? naturalGiftPower = null,Object? size = null,Object? smoothness = null,Object? soilDryness = null,Object? firmness = null,Object? flavors = null,Object? item = null,Object? naturalGiftType = null,}) {
-  return _then(_Berry(
+  return _then(_BerryDTO(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,growthTime: null == growthTime ? _self.growthTime : growthTime // ignore: cast_nullable_to_non_nullable
@@ -333,13 +333,13 @@ as int,smoothness: null == smoothness ? _self.smoothness : smoothness // ignore:
 as int,soilDryness: null == soilDryness ? _self.soilDryness : soilDryness // ignore: cast_nullable_to_non_nullable
 as int,firmness: null == firmness ? _self.firmness : firmness // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,flavors: null == flavors ? _self._flavors : flavors // ignore: cast_nullable_to_non_nullable
-as List<BerryFlavor>,item: null == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
+as List<BerryDTOFlavor>,item: null == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,naturalGiftType: null == naturalGiftType ? _self.naturalGiftType : naturalGiftType // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,
   ));
 }
 
-/// Create a copy of Berry
+/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -348,7 +348,7 @@ $NamedApiResourceCopyWith<$Res> get firmness {
   return $NamedApiResourceCopyWith<$Res>(_self.firmness, (value) {
     return _then(_self.copyWith(firmness: value));
   });
-}/// Create a copy of Berry
+}/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -357,7 +357,7 @@ $NamedApiResourceCopyWith<$Res> get item {
   return $NamedApiResourceCopyWith<$Res>(_self.item, (value) {
     return _then(_self.copyWith(item: value));
   });
-}/// Create a copy of Berry
+}/// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -371,22 +371,22 @@ $NamedApiResourceCopyWith<$Res> get naturalGiftType {
 
 
 /// @nodoc
-mixin _$BerryFlavor {
+mixin _$BerryDTOFlavor {
 
  int get potency; NamedApiResource get flavor;
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$BerryFlavorCopyWith<BerryFlavor> get copyWith => _$BerryFlavorCopyWithImpl<BerryFlavor>(this as BerryFlavor, _$identity);
+$BerryDTOFlavorCopyWith<BerryDTOFlavor> get copyWith => _$BerryDTOFlavorCopyWithImpl<BerryDTOFlavor>(this as BerryDTOFlavor, _$identity);
 
-  /// Serializes this BerryFlavor to a JSON map.
+  /// Serializes this BerryDTOFlavor to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BerryFlavor&&(identical(other.potency, potency) || other.potency == potency)&&(identical(other.flavor, flavor) || other.flavor == flavor));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BerryDTOFlavor&&(identical(other.potency, potency) || other.potency == potency)&&(identical(other.flavor, flavor) || other.flavor == flavor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -395,15 +395,15 @@ int get hashCode => Object.hash(runtimeType,potency,flavor);
 
 @override
 String toString() {
-  return 'BerryFlavor(potency: $potency, flavor: $flavor)';
+  return 'BerryDTOFlavor(potency: $potency, flavor: $flavor)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $BerryFlavorCopyWith<$Res>  {
-  factory $BerryFlavorCopyWith(BerryFlavor value, $Res Function(BerryFlavor) _then) = _$BerryFlavorCopyWithImpl;
+abstract mixin class $BerryDTOFlavorCopyWith<$Res>  {
+  factory $BerryDTOFlavorCopyWith(BerryDTOFlavor value, $Res Function(BerryDTOFlavor) _then) = _$BerryDTOFlavorCopyWithImpl;
 @useResult
 $Res call({
  int potency, NamedApiResource flavor
@@ -414,14 +414,14 @@ $NamedApiResourceCopyWith<$Res> get flavor;
 
 }
 /// @nodoc
-class _$BerryFlavorCopyWithImpl<$Res>
-    implements $BerryFlavorCopyWith<$Res> {
-  _$BerryFlavorCopyWithImpl(this._self, this._then);
+class _$BerryDTOFlavorCopyWithImpl<$Res>
+    implements $BerryDTOFlavorCopyWith<$Res> {
+  _$BerryDTOFlavorCopyWithImpl(this._self, this._then);
 
-  final BerryFlavor _self;
-  final $Res Function(BerryFlavor) _then;
+  final BerryDTOFlavor _self;
+  final $Res Function(BerryDTOFlavor) _then;
 
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? potency = null,Object? flavor = null,}) {
   return _then(_self.copyWith(
@@ -430,7 +430,7 @@ as int,flavor: null == flavor ? _self.flavor : flavor // ignore: cast_nullable_t
 as NamedApiResource,
   ));
 }
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -443,8 +443,8 @@ $NamedApiResourceCopyWith<$Res> get flavor {
 }
 
 
-/// Adds pattern-matching-related methods to [BerryFlavor].
-extension BerryFlavorPatterns on BerryFlavor {
+/// Adds pattern-matching-related methods to [BerryDTOFlavor].
+extension BerryDTOFlavorPatterns on BerryDTOFlavor {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -457,10 +457,10 @@ extension BerryFlavorPatterns on BerryFlavor {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BerryFlavor value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BerryDTOFlavor value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _BerryFlavor() when $default != null:
+case _BerryDTOFlavor() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -479,10 +479,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BerryFlavor value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BerryDTOFlavor value)  $default,){
 final _that = this;
 switch (_that) {
-case _BerryFlavor():
+case _BerryDTOFlavor():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -500,10 +500,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BerryFlavor value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BerryDTOFlavor value)?  $default,){
 final _that = this;
 switch (_that) {
-case _BerryFlavor() when $default != null:
+case _BerryDTOFlavor() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -523,7 +523,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int potency,  NamedApiResource flavor)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _BerryFlavor() when $default != null:
+case _BerryDTOFlavor() when $default != null:
 return $default(_that.potency,_that.flavor);case _:
   return orElse();
 
@@ -544,7 +544,7 @@ return $default(_that.potency,_that.flavor);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int potency,  NamedApiResource flavor)  $default,) {final _that = this;
 switch (_that) {
-case _BerryFlavor():
+case _BerryDTOFlavor():
 return $default(_that.potency,_that.flavor);case _:
   throw StateError('Unexpected subclass');
 
@@ -564,7 +564,7 @@ return $default(_that.potency,_that.flavor);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int potency,  NamedApiResource flavor)?  $default,) {final _that = this;
 switch (_that) {
-case _BerryFlavor() when $default != null:
+case _BerryDTOFlavor() when $default != null:
 return $default(_that.potency,_that.flavor);case _:
   return null;
 
@@ -576,27 +576,27 @@ return $default(_that.potency,_that.flavor);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _BerryFlavor implements BerryFlavor {
-  const _BerryFlavor({required this.potency, required this.flavor});
-  factory _BerryFlavor.fromJson(Map<String, dynamic> json) => _$BerryFlavorFromJson(json);
+class _BerryDTOFlavor implements BerryDTOFlavor {
+  const _BerryDTOFlavor({required this.potency, required this.flavor});
+  factory _BerryDTOFlavor.fromJson(Map<String, dynamic> json) => _$BerryDTOFlavorFromJson(json);
 
 @override final  int potency;
 @override final  NamedApiResource flavor;
 
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$BerryFlavorCopyWith<_BerryFlavor> get copyWith => __$BerryFlavorCopyWithImpl<_BerryFlavor>(this, _$identity);
+_$BerryDTOFlavorCopyWith<_BerryDTOFlavor> get copyWith => __$BerryDTOFlavorCopyWithImpl<_BerryDTOFlavor>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$BerryFlavorToJson(this, );
+  return _$BerryDTOFlavorToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BerryFlavor&&(identical(other.potency, potency) || other.potency == potency)&&(identical(other.flavor, flavor) || other.flavor == flavor));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BerryDTOFlavor&&(identical(other.potency, potency) || other.potency == potency)&&(identical(other.flavor, flavor) || other.flavor == flavor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -605,15 +605,15 @@ int get hashCode => Object.hash(runtimeType,potency,flavor);
 
 @override
 String toString() {
-  return 'BerryFlavor(potency: $potency, flavor: $flavor)';
+  return 'BerryDTOFlavor(potency: $potency, flavor: $flavor)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$BerryFlavorCopyWith<$Res> implements $BerryFlavorCopyWith<$Res> {
-  factory _$BerryFlavorCopyWith(_BerryFlavor value, $Res Function(_BerryFlavor) _then) = __$BerryFlavorCopyWithImpl;
+abstract mixin class _$BerryDTOFlavorCopyWith<$Res> implements $BerryDTOFlavorCopyWith<$Res> {
+  factory _$BerryDTOFlavorCopyWith(_BerryDTOFlavor value, $Res Function(_BerryDTOFlavor) _then) = __$BerryDTOFlavorCopyWithImpl;
 @override @useResult
 $Res call({
  int potency, NamedApiResource flavor
@@ -624,24 +624,24 @@ $Res call({
 
 }
 /// @nodoc
-class __$BerryFlavorCopyWithImpl<$Res>
-    implements _$BerryFlavorCopyWith<$Res> {
-  __$BerryFlavorCopyWithImpl(this._self, this._then);
+class __$BerryDTOFlavorCopyWithImpl<$Res>
+    implements _$BerryDTOFlavorCopyWith<$Res> {
+  __$BerryDTOFlavorCopyWithImpl(this._self, this._then);
 
-  final _BerryFlavor _self;
-  final $Res Function(_BerryFlavor) _then;
+  final _BerryDTOFlavor _self;
+  final $Res Function(_BerryDTOFlavor) _then;
 
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? potency = null,Object? flavor = null,}) {
-  return _then(_BerryFlavor(
+  return _then(_BerryDTOFlavor(
 potency: null == potency ? _self.potency : potency // ignore: cast_nullable_to_non_nullable
 as int,flavor: null == flavor ? _self.flavor : flavor // ignore: cast_nullable_to_non_nullable
 as NamedApiResource,
   ));
 }
 
-/// Create a copy of BerryFlavor
+/// Create a copy of BerryDTOFlavor
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

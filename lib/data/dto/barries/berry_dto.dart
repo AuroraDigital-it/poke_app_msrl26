@@ -1,12 +1,12 @@
-import 'package:poke_app/model/named_api_resource/name_api_resource.dart';
+import 'package:poke_app/data/dto/named_api_resource/name_api_resource.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'berry.freezed.dart';
-part 'berry.g.dart';
+part 'berry_dto.freezed.dart';
+part 'berry_dto.g.dart';
 
 @freezed
-abstract class Berry with _$Berry {
-  const factory Berry({
+abstract class BerryDTO with _$BerryDTO {
+  const factory BerryDTO({
     required int id,
     required String name,
     // Cerca la proprietà growth_time nella risposta JSON e mappala a growthTime
@@ -17,18 +17,18 @@ abstract class Berry with _$Berry {
     required int smoothness,
     @JsonKey(name: 'soil_dryness') required int soilDryness,
     required NamedApiResource firmness,
-    required List<BerryFlavor> flavors,
+    required List<BerryDTOFlavor> flavors,
     required NamedApiResource item,
     @JsonKey(name: 'natural_gift_type') required NamedApiResource naturalGiftType,
-  }) = _Berry;
+  }) = _BerryDTO;
 
-  factory Berry.fromJson(Map<String, dynamic> json) => _$BerryFromJson(json);
+  factory BerryDTO.fromJson(Map<String, dynamic> json) => _$BerryDTOFromJson(json);
 }
 
 @freezed
-abstract class BerryFlavor with _$BerryFlavor {
-  const factory BerryFlavor({required int potency, required NamedApiResource flavor}) =
-      _BerryFlavor;
+abstract class BerryDTOFlavor with _$BerryDTOFlavor {
+  const factory BerryDTOFlavor({required int potency, required NamedApiResource flavor}) =
+      _BerryDTOFlavor;
 
-  factory BerryFlavor.fromJson(Map<String, dynamic> json) => _$BerryFlavorFromJson(json);
+  factory BerryDTOFlavor.fromJson(Map<String, dynamic> json) => _$BerryDTOFlavorFromJson(json);
 }

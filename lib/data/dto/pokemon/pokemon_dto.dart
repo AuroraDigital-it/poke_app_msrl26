@@ -8,16 +8,16 @@
 // Per rigenerare i file .freezed.dart / .g.dart:
 //   dart run build_runner build --delete-conflicting-outputs
 
-import 'package:poke_app/model/named_api_resource/name_api_resource.dart';
+import 'package:poke_app/data/dto/named_api_resource/name_api_resource.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'pokemon.freezed.dart';
-part 'pokemon.g.dart';
+part 'pokemon_dto.freezed.dart';
+part 'pokemon_dto.g.dart';
 
 /// Radice della risposta: un singolo Pokémon.
 @freezed
-abstract class Pokemon with _$Pokemon {
-  const factory Pokemon({
+abstract class PokemonDTO with _$PokemonDTO {
+  const factory PokemonDTO({
     required int id,
     required String name,
     @JsonKey(name: 'base_experience') int? baseExperience,
@@ -39,7 +39,7 @@ abstract class Pokemon with _$Pokemon {
     required List<PokemonType> types,
   }) = _Pokemon;
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) => _$PokemonFromJson(json);
+  factory PokemonDTO.fromJson(Map<String, dynamic> json) => _$PokemonDTOFromJson(json);
 }
 
 

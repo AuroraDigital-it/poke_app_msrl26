@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'berry.dart';
+part of 'berry_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Berry _$BerryFromJson(Map<String, dynamic> json) => _Berry(
+_BerryDTO _$BerryDTOFromJson(Map<String, dynamic> json) => _BerryDTO(
   id: (json['id'] as num).toInt(),
   name: json['name'] as String,
   growthTime: (json['growth_time'] as num).toInt(),
@@ -17,7 +17,7 @@ _Berry _$BerryFromJson(Map<String, dynamic> json) => _Berry(
   soilDryness: (json['soil_dryness'] as num).toInt(),
   firmness: NamedApiResource.fromJson(json['firmness'] as Map<String, dynamic>),
   flavors: (json['flavors'] as List<dynamic>)
-      .map((e) => BerryFlavor.fromJson(e as Map<String, dynamic>))
+      .map((e) => BerryDTOFlavor.fromJson(e as Map<String, dynamic>))
       .toList(),
   item: NamedApiResource.fromJson(json['item'] as Map<String, dynamic>),
   naturalGiftType: NamedApiResource.fromJson(
@@ -25,7 +25,7 @@ _Berry _$BerryFromJson(Map<String, dynamic> json) => _Berry(
   ),
 );
 
-Map<String, dynamic> _$BerryToJson(_Berry instance) => <String, dynamic>{
+Map<String, dynamic> _$BerryDTOToJson(_BerryDTO instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'growth_time': instance.growthTime,
@@ -40,10 +40,11 @@ Map<String, dynamic> _$BerryToJson(_Berry instance) => <String, dynamic>{
   'natural_gift_type': instance.naturalGiftType,
 };
 
-_BerryFlavor _$BerryFlavorFromJson(Map<String, dynamic> json) => _BerryFlavor(
-  potency: (json['potency'] as num).toInt(),
-  flavor: NamedApiResource.fromJson(json['flavor'] as Map<String, dynamic>),
-);
+_BerryDTOFlavor _$BerryDTOFlavorFromJson(Map<String, dynamic> json) =>
+    _BerryDTOFlavor(
+      potency: (json['potency'] as num).toInt(),
+      flavor: NamedApiResource.fromJson(json['flavor'] as Map<String, dynamic>),
+    );
 
-Map<String, dynamic> _$BerryFlavorToJson(_BerryFlavor instance) =>
+Map<String, dynamic> _$BerryDTOFlavorToJson(_BerryDTOFlavor instance) =>
     <String, dynamic>{'potency': instance.potency, 'flavor': instance.flavor};
