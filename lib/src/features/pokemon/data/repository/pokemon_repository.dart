@@ -1,3 +1,4 @@
+import 'package:poke_app/src/features/pokemon/data/datasource/fake/pokemon_fake_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/remote/pokemon_remote_datasource.dart';
 import 'package:poke_app/src/features/pokemon/domain/mapper/pokemon_mapper.dart';
@@ -31,6 +32,14 @@ class PokemonRepository {
 
 @Riverpod(keepAlive: true)
 PokemonRepository pokemonRepository(Ref ref) {
-  final remoteDatasource = ref.watch(pokemonRemoteDatasourceProvider);
+  // Read env variables if use fake data
+  final useFakeData = (const bool.fromEnvironment('USE_FAKE_DATA'));
+  late PokemonDataSource remoteDatasource;
+
+  if (useFakeData) {
+    remoteDatasource = ref.read(pokemonFakeDatasourceProvider);
+  } else {
+    remoteDatasource = ref.read(pokemonRemoteDatasourceProvider);
+  }
   return PokemonRepository(remoteDatasource: remoteDatasource);
 }

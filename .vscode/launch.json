@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter Debug (Fake Data ON)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define","USE_FAKE_DATA=true"
+      ]
+    },
+    {
+      "name": "Flutter Debug (Fake Data OFF)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define","USE_FAKE_DATA=false"
+      ]
+    }
+  ]
+}

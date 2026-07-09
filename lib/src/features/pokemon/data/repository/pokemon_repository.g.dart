@@ -54,4 +54,4 @@ final class PokemonRepositoryProvider
   }
 }
 
-String _$pokemonRepositoryHash() => r'36ed6d94db42da66d829c7ef5336c47a1b21a517';
+String _$pokemonRepositoryHash() => r'2035cf69cc77965bdc5487ce6a082289500404c8';
