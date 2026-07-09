@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:poke_app/src/features/pokemon/presentation/home/controller/home_controller.dart';
+import 'package:poke_app/theme/theme_light.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -52,7 +54,12 @@ class HomePage extends HookConsumerWidget {
                     itemCount: data.pokemonList.length,
                     itemBuilder: (context, index) {
                       final pokemon = data.pokemonList[index];
+                      final typeColors = Theme.of(context).extension<PokemonTypeColors>()!;
+                      final color = typeColors.of(
+                        pokemon.types.isNotEmpty ? pokemon.types[0] : 'normal',
+                      );
                       return Card(
+                        color: color.withValues(alpha: 0.2),
                         child: ListTile(
                           leading: CachedNetworkImage(
                             imageUrl: pokemon.imageUrls[0],
@@ -64,7 +71,8 @@ class HomePage extends HookConsumerWidget {
                           title: Text(pokemon.name.toUpperCase()),
                           subtitle: Text('ID: ${pokemon.id}'),
                           onTap: () {
-                            // Naviga alla pagina dei dettagli del Pokemon
+                            // Navigate to detail page
+                            context.push('/detail/${pokemon.id}');
                           },
                         ),
                       );

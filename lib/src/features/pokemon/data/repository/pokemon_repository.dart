@@ -28,6 +28,15 @@ class PokemonRepository {
     final dto = await _remoteDatasource.getPokemonList(offset: offset, limit: limit);
     return dto.results.map((resource) => resource.name).toList();
   }
+
+  Future<Pokemon> getPokemonById(int id) async {
+    try {
+      final dto = await _remoteDatasource.getPokemonById(id);
+      return PokemonMapper.fromDTO(dto);
+    } catch (e) {
+      throw Exception('Errore nel decodificare la risposta per l\'ID "$id": $e');
+    }
+  }
 }
 
 @Riverpod(keepAlive: true)

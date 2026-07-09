@@ -28,6 +28,11 @@ class PokemonFakeDatasource implements PokemonDataSource {
       results: [NamedApiResource(name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25/')],
     );
   }
+
+  @override
+  Future<PokemonDTO> getPokemonById(int id) {
+    return Future.value(mockPikachu);
+  }
 }
 
 @Riverpod(keepAlive: true)

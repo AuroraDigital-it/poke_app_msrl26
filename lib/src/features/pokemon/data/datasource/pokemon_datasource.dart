@@ -4,4 +4,5 @@ import 'package:poke_app/src/features/pokemon/data/dto/pokemon_list/pokemon_list
 abstract class PokemonDataSource {
   Future<PokemonListDTO> getPokemonList({required int offset, required int limit});
   Future<PokemonDTO> getPokemonByName(String name);
+  Future<PokemonDTO> getPokemonById(int id);
 }

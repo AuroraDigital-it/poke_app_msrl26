@@ -32,7 +32,10 @@ class PokemonCard extends StatelessWidget {
           else
             Icon(Icons.image_not_supported, size: 160),
           Text(pokemon.name, style: Theme.of(context).textTheme.headlineSmall),
-          Text(pokemon.types.join(', '), style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            pokemon.types.map((e) => e.toUpperCase()).join(', '),
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ],
       ),
     );

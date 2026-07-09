@@ -26,6 +26,16 @@ class PokemonRemoteDatasource implements PokemonDataSource {
     final data = await _dio.get('pokemon?offset=$offset&limit=$limit');
     return PokemonListDTO.fromJson(data.data);
   }
+
+  @override
+  Future<PokemonDTO> getPokemonById(int id) async {
+    try {
+      final res = await _dio.get('pokemon/$id');
+      return PokemonDTO.fromJson(res.data);
+    } catch (e) {
+      throw Exception('Errore nel decodificare la risposta per l\'ID "$id": $e');
+    }
+  }
 }
 
 @Riverpod(keepAlive: true)
