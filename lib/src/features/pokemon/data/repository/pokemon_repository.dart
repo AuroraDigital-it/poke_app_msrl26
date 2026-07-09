@@ -1,4 +1,5 @@
-import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_remote_datasource.dart';
+import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
+import 'package:poke_app/src/features/pokemon/data/datasource/remote/pokemon_remote_datasource.dart';
 import 'package:poke_app/src/features/pokemon/domain/mapper/pokemon_mapper.dart';
 import 'package:poke_app/src/features/pokemon/domain/pokemon/pokemon.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,15 +7,15 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'pokemon_repository.g.dart';
 
 class PokemonRepository {
-  final PokemonRemoteDatasource _remoteDatasource;
+  final PokemonDataSource _remoteDatasource;
 
-  PokemonRepository({required PokemonRemoteDatasource remoteDatasource})
+  PokemonRepository({required PokemonDataSource remoteDatasource})
     : _remoteDatasource = remoteDatasource;
 
-  Future<Pokemon> loadPokemonByName(String name) async {
+  Future<Pokemon> getPokemonByName(String name) async {
     try {
       //PRENDO IL DATO GREZZO
-      final dto = await _remoteDatasource.loadPokemonByName(name);
+      final dto = await _remoteDatasource.getPokemonByName(name);
       // LO MAPPO PER L'ENTITA' E LO RITORNO AL CHIAMANTE
       return PokemonMapper.fromDTO(dto);
     } catch (e) {
@@ -22,8 +23,8 @@ class PokemonRepository {
     }
   }
 
-  Future<List<String>> getPokemonList(int offset, int limit) async {
-    final dto = await _remoteDatasource.getPokemonList(offset, limit);
+  Future<List<String>> getPokemonList({required int offset, required int limit}) async {
+    final dto = await _remoteDatasource.getPokemonList(offset: offset, limit: limit);
     return dto.results.map((resource) => resource.name).toList();
   }
 }

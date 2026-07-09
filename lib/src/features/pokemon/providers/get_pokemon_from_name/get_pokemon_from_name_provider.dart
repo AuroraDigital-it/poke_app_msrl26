@@ -7,5 +7,5 @@ part 'get_pokemon_from_name_provider.g.dart';
 @riverpod
 Future<Pokemon> getPokemonFromName(Ref ref, String name) async {
   final repository = ref.read(pokemonRepositoryProvider);
-  return await repository.loadPokemonByName(name);
+  return await repository.getPokemonByName(name);
 }

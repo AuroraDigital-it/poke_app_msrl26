@@ -64,7 +64,7 @@ final class GetPokemonListProvider
   }
 }
 
-String _$getPokemonListHash() => r'09ec50f85410ebe122052f783cffcff5966b0086';
+String _$getPokemonListHash() => r'0d7b622fa6db1d75484807d81ca949b062c27a26';
 
 final class GetPokemonListFamily extends $Family
     with
