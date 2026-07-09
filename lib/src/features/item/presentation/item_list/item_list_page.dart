@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:poke_app/src/features/pokemon/presentation/home/controller/home_controller.dart';
-import 'package:poke_app/theme/theme_light.dart';
+import 'package:poke_app/src/features/item/presentation/item_list/controller/item_list_controller.dart';
 
-class HomePage extends HookConsumerWidget {
-  const HomePage({super.key});
+class ItemListPage extends HookConsumerWidget {
+  const ItemListPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncController = ref.watch(homeControllerProvider);
-    final controller = ref.read(homeControllerProvider.notifier);
+    final asyncController = ref.watch(itemListControllerProvider);
+    final controller = ref.read(itemListControllerProvider.notifier);
     final textController = useTextEditingController();
 
     useEffect(() {
@@ -23,17 +22,7 @@ class HomePage extends HookConsumerWidget {
     }, [asyncController]);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Page"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.insert_emoticon),
-            onPressed: () {
-              context.push('/item-list');
-            },
-          ),
-        ],
-      ),
+      appBar: AppBar(title: Text("Items page")),
       floatingActionButton: textController.text.isNotEmpty
           ? FloatingActionButton(
               onPressed: () {
@@ -52,37 +41,32 @@ class HomePage extends HookConsumerWidget {
               onSubmitted: (value) {
                 controller.updateSearchQuery(value);
               },
-              decoration: InputDecoration(labelText: 'Cerca Pokemon', border: OutlineInputBorder()),
+              decoration: InputDecoration(labelText: 'Cerca Item', border: OutlineInputBorder()),
             ),
             asyncController.when(
               data: (data) {
-                if (data.pokemonList.isEmpty) {
-                  return const Center(child: Text('Nessun Pokemon trovato'));
+                if (data.itemEntityList.isEmpty) {
+                  return const Center(child: Text('Nessun item trovato'));
                 }
                 return Expanded(
                   child: ListView.builder(
-                    itemCount: data.pokemonList.length,
+                    itemCount: data.itemEntityList.length,
                     itemBuilder: (context, index) {
-                      final pokemon = data.pokemonList[index];
-                      final typeColors = Theme.of(context).extension<PokemonTypeColors>()!;
-                      final color = typeColors.of(
-                        pokemon.types.isNotEmpty ? pokemon.types[0] : 'normal',
-                      );
+                      final item = data.itemEntityList[index];
                       return Card(
-                        color: color.withValues(alpha: 0.2),
                         child: ListTile(
                           leading: CachedNetworkImage(
-                            imageUrl: pokemon.imageUrls[0],
+                            imageUrl: item.imageUrl!,
                             width: 50,
                             height: 50,
                             placeholder: (context, url) => CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Icon(Icons.error),
                           ),
-                          title: Text(pokemon.name.toUpperCase()),
-                          subtitle: Text('ID: ${pokemon.id}'),
+                          title: Text(item.name.toUpperCase()),
+                          subtitle: Text('ID: ${item.id}'),
                           onTap: () {
                             // Navigate to detail page
-                            context.push('/detail/${pokemon.id}');
+                            context.push('/item-detail/${item.id}');
                           },
                         ),
                       );

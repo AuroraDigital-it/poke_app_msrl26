@@ -8,9 +8,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'pokemon_repository.g.dart';
 
 class PokemonRepository {
-  final PokemonDataSource _remoteDatasource;
+  final PokemonDatasource _remoteDatasource;
 
-  PokemonRepository({required PokemonDataSource remoteDatasource})
+  PokemonRepository({required PokemonDatasource remoteDatasource})
     : _remoteDatasource = remoteDatasource;
 
   Future<Pokemon> getPokemonByName(String name) async {
@@ -43,7 +43,7 @@ class PokemonRepository {
 PokemonRepository pokemonRepository(Ref ref) {
   // Read env variables if use fake data
   final useFakeData = (const bool.fromEnvironment('USE_FAKE_DATA'));
-  late PokemonDataSource remoteDatasource;
+  late PokemonDatasource remoteDatasource;
 
   if (useFakeData) {
     remoteDatasource = ref.read(pokemonFakeDatasourceProvider);

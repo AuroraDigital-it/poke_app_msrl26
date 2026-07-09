@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'pokemon_fake_datasource.g.dart';
 
-class PokemonFakeDatasource implements PokemonDataSource {
+class PokemonFakeDatasource implements PokemonDatasource {
   PokemonFakeDatasource();
 
   @override
@@ -36,6 +36,6 @@ class PokemonFakeDatasource implements PokemonDataSource {
 }
 
 @Riverpod(keepAlive: true)
-PokemonDataSource pokemonFakeDatasource(Ref ref) {
+PokemonDatasource pokemonFakeDatasource(Ref ref) {
   return PokemonFakeDatasource();
 }

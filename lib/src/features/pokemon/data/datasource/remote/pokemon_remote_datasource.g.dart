@@ -15,11 +15,11 @@ final pokemonRemoteDatasourceProvider = PokemonRemoteDatasourceProvider._();
 final class PokemonRemoteDatasourceProvider
     extends
         $FunctionalProvider<
-          PokemonDataSource,
-          PokemonDataSource,
-          PokemonDataSource
+          PokemonDatasource,
+          PokemonDatasource,
+          PokemonDatasource
         >
-    with $Provider<PokemonDataSource> {
+    with $Provider<PokemonDatasource> {
   PokemonRemoteDatasourceProvider._()
     : super(
         from: null,
@@ -36,23 +36,23 @@ final class PokemonRemoteDatasourceProvider
 
   @$internal
   @override
-  $ProviderElement<PokemonDataSource> $createElement(
+  $ProviderElement<PokemonDatasource> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  PokemonDataSource create(Ref ref) {
+  PokemonDatasource create(Ref ref) {
     return pokemonRemoteDatasource(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(PokemonDataSource value) {
+  Override overrideWithValue(PokemonDatasource value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<PokemonDataSource>(value),
+      providerOverride: $SyncValueProvider<PokemonDatasource>(value),
     );
   }
 }
 
 String _$pokemonRemoteDatasourceHash() =>
-    r'03ce7f19ddff9a0b61fe8dc0553a3ae49b520353';
+    r'2a66d56fd0863ad7122b5f61a62bf37bcb176f7e';

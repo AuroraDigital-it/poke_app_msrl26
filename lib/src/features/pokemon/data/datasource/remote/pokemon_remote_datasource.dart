@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'pokemon_remote_datasource.g.dart';
 
-class PokemonRemoteDatasource implements PokemonDataSource {
+class PokemonRemoteDatasource implements PokemonDatasource {
   final Dio _dio;
   PokemonRemoteDatasource({required Dio dio}) : _dio = dio;
 
@@ -39,7 +39,7 @@ class PokemonRemoteDatasource implements PokemonDataSource {
 }
 
 @Riverpod(keepAlive: true)
-PokemonDataSource pokemonRemoteDatasource(Ref ref) {
+PokemonDatasource pokemonRemoteDatasource(Ref ref) {
   final dio = ref.read(dioClientProvider);
   return PokemonRemoteDatasource(dio: dio);
 }
