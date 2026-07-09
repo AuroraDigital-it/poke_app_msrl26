@@ -12,6 +12,14 @@ class HomePage extends HookConsumerWidget {
     final asyncController = ref.watch(homeControllerProvider);
     final controller = ref.read(homeControllerProvider.notifier);
     final textController = useTextEditingController();
+    
+    useEffect(() {
+      asyncController.whenData((data) {
+        textController.text = data.searchQuery;
+      });
+      return null;
+    }, [asyncController]);
+
     return Scaffold(
       appBar: AppBar(title: Text("Home Page")),
       body: Padding(
@@ -28,9 +36,6 @@ class HomePage extends HookConsumerWidget {
             ),
             asyncController.when(
               data: (data) {
-                // First add the line to update the text controller with the current search query
-                textController.text = data.searchQuery;
-
                 if (data.pokemon == null) {
                   return const Center(child: Text('Nessun Pokemon trovato'));
                 }
