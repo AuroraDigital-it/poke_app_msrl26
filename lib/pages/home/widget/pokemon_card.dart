@@ -17,7 +17,14 @@ class PokemonCard extends StatelessWidget {
               children: pokemon.imageUrls.map((url) {
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: Image.network(url, width: 80, height: 80),
+                  child: Image.network(
+                    url,
+                    width: 80,
+                    height: 80,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(Icons.broken_image, size: 80);
+                    },
+                  ),
                 );
               }).toList(),
             )
