@@ -1,20 +1,13 @@
-import 'package:go_router/go_router.dart';
-import 'package:poke_app/src/features/item/presentation/detail/item_detail_page.dart';
-import 'package:poke_app/src/features/item/presentation/item_list/item_list_page.dart';
-import 'package:poke_app/src/features/pokemon/presentation/detail/pokemon_detail.dart';
-import 'package:poke_app/src/features/pokemon/presentation/home/home_page.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:poke_app/src/router/app_router.gr.dart';
 
-final router = GoRouter(
-  routes: [
-    GoRoute(path: '/', builder: (context, state) => const HomePage()),
-    GoRoute(
-      path: '/detail/:id',
-      builder: (context, state) => PokemonDetail(id: int.parse(state.pathParameters['id']!)),
-    ),
-    GoRoute(path: '/item-list', builder: (context, state) => const ItemListPage()),
-    GoRoute(
-      path: '/item-detail/:id',
-      builder: (context, state) => ItemDetailPage(id: int.parse(state.pathParameters['id']!)),
-    ),
-  ],
-);
+@AutoRouterConfig()
+class AppRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(page: HomeRoute.page, initial: true),
+    AutoRoute(page: PokemonDetailRoute.page, path: '/detail/:id'),
+    AutoRoute(page: ItemListRoute.page, path: '/item-list'),
+    AutoRoute(page: ItemDetailRoute.page, path: '/item-detail/:id'),
+  ];
+}

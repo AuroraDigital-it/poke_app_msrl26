@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -5,8 +6,9 @@ import 'package:poke_app/src/features/item/domain/flavor_text_entries/flavor_tex
 import 'package:poke_app/src/features/item/domain/item_entity/item_entity.dart';
 import 'package:poke_app/src/features/item/provider/get_item_by_id/get_item_by_id_provider.dart';
 
+@RoutePage()
 class ItemDetailPage extends ConsumerWidget {
-  const ItemDetailPage({required this.id, super.key});
+  const ItemDetailPage({@PathParam('id') required this.id, super.key});
 
   final int id;
 

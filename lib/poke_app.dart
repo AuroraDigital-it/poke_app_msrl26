@@ -3,7 +3,9 @@ import 'package:poke_app/src/router/app_router.dart';
 import 'package:poke_app/theme/theme_light.dart';
 
 class PokeApp extends StatelessWidget {
-  const PokeApp({super.key});
+  PokeApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class PokeApp extends StatelessWidget {
       title: 'Async Basics',
       debugShowCheckedModeBanner: false,
       theme: themeLight,
-      routerConfig: router,
+      routerConfig: _appRouter.config(),
     );
   }
 }

@@ -34,13 +34,13 @@ final class ItemListControllerProvider
 }
 
 String _$itemListControllerHash() =>
-    r'f11f66ef2e775bd97ea636244b7dab9af1055159';
+    r'b4b4ff858900329e62192978b20ce532ae31aad3';
 
 abstract class _$ItemListController extends $AsyncNotifier<ItemListState> {
   FutureOr<ItemListState> build();
   @$mustCallSuper
   @override
-  WhenComplete runBuild() {
+  void runBuild() {
     final ref = this.ref as $Ref<AsyncValue<ItemListState>, ItemListState>;
     final element =
         ref.element
@@ -50,6 +50,6 @@ abstract class _$ItemListController extends $AsyncNotifier<ItemListState> {
               Object?,
               Object?
             >;
-    return element.handleCreate(ref, build);
+    element.handleCreate(ref, build);
   }
 }

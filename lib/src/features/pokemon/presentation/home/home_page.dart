@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:poke_app/src/features/pokemon/presentation/home/controller/home_controller.dart';
+import 'package:poke_app/src/router/app_router.gr.dart';
 import 'package:poke_app/theme/theme_light.dart';
 
+@RoutePage()
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
 
@@ -29,7 +31,7 @@ class HomePage extends HookConsumerWidget {
           IconButton(
             icon: Icon(Icons.insert_emoticon),
             onPressed: () {
-              context.push('/item-list');
+              context.router.push(const ItemListRoute());
             },
           ),
         ],
@@ -82,7 +84,7 @@ class HomePage extends HookConsumerWidget {
                           subtitle: Text('ID: ${pokemon.id}'),
                           onTap: () {
                             // Navigate to detail page
-                            context.push('/detail/${pokemon.id}');
+                            context.router.push(PokemonDetailRoute(id: pokemon.id));
                           },
                         ),
                       );

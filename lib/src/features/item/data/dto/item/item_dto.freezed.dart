@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ItemDTO {
 
- int get id; String get name; int get cost;@JsonKey(name: 'fling_power') int? get flingPower;@JsonKey(name: 'fling_effect') NamedApiResource? get flingEffect; List<NamedApiResource> get attributes; NamedApiResource get category;@JsonKey(name: 'effect_entries') List<VerboseEffectDTO> get effectEntries;@JsonKey(name: 'flavor_text_entries') List<ItemFlavorTextDTO> get flavorTextEntries;@JsonKey(name: 'game_indices') List<ItemGameIndexDTO> get gameIndices; List<ItemNameDTO> get names; ItemSpritesDTO get sprites;@JsonKey(name: 'held_by_pokemon') List<ItemHolderPokemonDTO> get heldByPokemon;@JsonKey(name: 'baby_trigger_for') ApiResource? get babyTriggerFor; List<MachineVersionDetailDTO> get machines;
+ int get id; String get name; int get cost;// `fling_power` e `fling_effect` sono null per la maggior parte degli
+// oggetti: solo quelli lanciabili con la mossa Lancio li valorizzano.
+@JsonKey(name: 'fling_power') int? get flingPower;@JsonKey(name: 'fling_effect') NamedApiResource? get flingEffect; List<NamedApiResource> get attributes; NamedApiResource get category;@JsonKey(name: 'effect_entries') List<VerboseEffectDTO> get effectEntries;@JsonKey(name: 'flavor_text_entries') List<ItemFlavorTextDTO> get flavorTextEntries;@JsonKey(name: 'game_indices') List<ItemGameIndexDTO> get gameIndices; List<ItemNameDTO> get names; ItemSpritesDTO get sprites;@JsonKey(name: 'held_by_pokemon') List<ItemHolderPokemonDTO> get heldByPokemon;// Valorizzato solo per gli oggetti che sbloccano un baby Pokémon.
+@JsonKey(name: 'baby_trigger_for') ApiResource? get babyTriggerFor; List<MachineVersionDetailDTO> get machines;
 /// Create a copy of ItemDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -271,6 +274,8 @@ class _ItemDTO implements ItemDTO {
 @override final  int id;
 @override final  String name;
 @override final  int cost;
+// `fling_power` e `fling_effect` sono null per la maggior parte degli
+// oggetti: solo quelli lanciabili con la mossa Lancio li valorizzano.
 @override@JsonKey(name: 'fling_power') final  int? flingPower;
 @override@JsonKey(name: 'fling_effect') final  NamedApiResource? flingEffect;
  final  List<NamedApiResource> _attributes;
@@ -317,6 +322,7 @@ class _ItemDTO implements ItemDTO {
   return EqualUnmodifiableListView(_heldByPokemon);
 }
 
+// Valorizzato solo per gli oggetti che sbloccano un baby Pokémon.
 @override@JsonKey(name: 'baby_trigger_for') final  ApiResource? babyTriggerFor;
  final  List<MachineVersionDetailDTO> _machines;
 @override List<MachineVersionDetailDTO> get machines {
