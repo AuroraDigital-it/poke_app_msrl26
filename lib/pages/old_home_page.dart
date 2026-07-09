@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:poke_app/data/berries_service.dart';
 import 'package:poke_app/data/pokemon_service.dart';
 import 'package:poke_app/domain/pokemon/pokemon.dart';
-import 'package:poke_app/pages/widget/pokemon_card.dart';
+import 'package:poke_app/pages/home/widget/pokemon_card.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class OldHomePage extends StatefulWidget {
+  const OldHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<OldHomePage> createState() => _OldHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _OldHomePageState extends State<OldHomePage> {
   bool _isLoading = false;
   String errorMessage = '';
   final _controller = TextEditingController(text: 'pikachu');

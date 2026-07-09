@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'pages/home_page.dart';
+import 'package:poke_app/pages/home/home_page.dart';
 
 void main() => runApp(const AsyncBasicsApp());
 
@@ -12,10 +11,7 @@ class AsyncBasicsApp extends StatelessWidget {
     return MaterialApp(
       title: 'Async Basics',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorSchemeSeed: const Color(0xFF67CAAB),
-        useMaterial3: true,
-      ),
+      theme: ThemeData(colorSchemeSeed: const Color(0xFF67CAAB), useMaterial3: true),
       home: const HomePage(),
     );
   }

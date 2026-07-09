@@ -15,8 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BerryDTO {
 
- int get id; String get name;// Cerca la proprietà growth_time nella risposta JSON e mappala a growthTime
-@JsonKey(name: 'growth_time') int get growthTime;@JsonKey(name: 'max_harvest') int get maxHarvest;@JsonKey(name: 'natural_gift_power') int get naturalGiftPower; int get size; int get smoothness;@JsonKey(name: 'soil_dryness') int get soilDryness; NamedApiResource get firmness; List<BerryDTOFlavor> get flavors; NamedApiResource get item;@JsonKey(name: 'natural_gift_type') NamedApiResource get naturalGiftType;
+ int get id; String get name;@JsonKey(name: 'growth_time') int get growthTime;@JsonKey(name: 'max_harvest') int get maxHarvest;@JsonKey(name: 'natural_gift_power') int get naturalGiftPower; int get size; int get smoothness;@JsonKey(name: 'soil_dryness') int get soilDryness; NamedApiResource get firmness; List<BerryDTOFlavor> get flavors; NamedApiResource get item;@JsonKey(name: 'natural_gift_type') NamedApiResource get naturalGiftType;
 /// Create a copy of BerryDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -253,7 +252,6 @@ class _BerryDTO implements BerryDTO {
 
 @override final  int id;
 @override final  String name;
-// Cerca la proprietà growth_time nella risposta JSON e mappala a growthTime
 @override@JsonKey(name: 'growth_time') final  int growthTime;
 @override@JsonKey(name: 'max_harvest') final  int maxHarvest;
 @override@JsonKey(name: 'natural_gift_power') final  int naturalGiftPower;
