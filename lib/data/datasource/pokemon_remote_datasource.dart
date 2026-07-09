@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:poke_app/client/dio_client.dart';
 import 'package:poke_app/data/dto/pokemon/pokemon_dto.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+part 'pokemon_remote_datasource.g.dart';
 
 // RICEZIONE DATI ED INVIO
 class PokemonRemoteDatasource {
@@ -17,6 +20,8 @@ class PokemonRemoteDatasource {
   }
 }
 
-
-
-/// DATASOURCE -> REPOSITORY -> PROVIDER (SERVICES)
+@Riverpod(keepAlive: true)
+PokemonRemoteDatasource pokemonRemoteDatasource(Ref ref) {
+  final dio = ref.read(dioClientProvider);
+  return PokemonRemoteDatasource(dio: dio);
+}

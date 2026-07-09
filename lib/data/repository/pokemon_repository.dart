@@ -1,6 +1,9 @@
 import 'package:poke_app/data/datasource/pokemon_remote_datasource.dart';
 import 'package:poke_app/domain/mapper/pokemon_mapper.dart';
 import 'package:poke_app/domain/pokemon/pokemon.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'pokemon_repository.g.dart';
 
 class PokemonRepository {
   final PokemonRemoteDatasource _remoteDatasource;
@@ -18,4 +21,10 @@ class PokemonRepository {
       throw Exception('Errore nel decodificare la risposta per "$name": $e');
     }
   }
+}
+
+@Riverpod(keepAlive: true)
+PokemonRepository pokemonRepository(Ref ref) {
+  final remoteDatasource = ref.watch(pokemonRemoteDatasourceProvider);
+  return PokemonRepository(remoteDatasource: remoteDatasource);
 }

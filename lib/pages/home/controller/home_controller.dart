@@ -1,6 +1,6 @@
 import 'package:poke_app/domain/pokemon/pokemon.dart';
 import 'package:poke_app/pages/home/controller/state/home_state.dart';
-import 'package:poke_app/providers/pokemon/get_pokemon_from_name_provider.dart';
+import 'package:poke_app/providers/get_pokemon_from_name/get_pokemon_from_name_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_controller.g.dart';
