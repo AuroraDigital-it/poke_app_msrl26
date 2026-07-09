@@ -28,6 +28,9 @@ class HomePage extends HookConsumerWidget {
             ),
             asyncController.when(
               data: (data) {
+                // First add the line to update the text controller with the current search query
+                textController.text = data.searchQuery;
+
                 if (data.pokemon == null) {
                   return const Center(child: Text('Nessun Pokemon trovato'));
                 }
