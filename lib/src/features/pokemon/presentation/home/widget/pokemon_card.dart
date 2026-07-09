@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:poke_app/src/features/pokemon/domain/pokemon/pokemon.dart';
 
@@ -17,11 +18,11 @@ class PokemonCard extends StatelessWidget {
               children: pokemon.imageUrls.map((url) {
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: Image.network(
-                    url,
+                  child: CachedNetworkImage(
+                    imageUrl: url,
                     width: 80,
                     height: 80,
-                    errorBuilder: (context, error, stackTrace) {
+                    errorWidget: (context, url, error) {
                       return Icon(Icons.broken_image, size: 80);
                     },
                   ),
