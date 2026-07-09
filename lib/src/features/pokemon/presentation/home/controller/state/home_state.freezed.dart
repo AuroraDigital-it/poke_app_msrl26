@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState {
 
- Pokemon? get pokemon; Berry? get berry; String get searchQuery;
+ List<Pokemon> get pokemonList; int get offset; String get searchQuery;
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&(identical(other.berry, berry) || other.berry == berry)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&const DeepCollectionEquality().equals(other.pokemonList, pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pokemon,berry,searchQuery);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(pokemonList),offset,searchQuery);
 
 @override
 String toString() {
-  return 'HomeState(pokemon: $pokemon, berry: $berry, searchQuery: $searchQuery)';
+  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery)';
 }
 
 
@@ -45,11 +45,11 @@ abstract mixin class $HomeStateCopyWith<$Res>  {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
 @useResult
 $Res call({
- Pokemon? pokemon, Berry? berry, String searchQuery
+ List<Pokemon> pokemonList, int offset, String searchQuery
 });
 
 
-$PokemonCopyWith<$Res>? get pokemon;$BerryCopyWith<$Res>? get berry;
+
 
 }
 /// @nodoc
@@ -62,39 +62,15 @@ class _$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? pokemon = freezed,Object? berry = freezed,Object? searchQuery = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,}) {
   return _then(_self.copyWith(
-pokemon: freezed == pokemon ? _self.pokemon : pokemon // ignore: cast_nullable_to_non_nullable
-as Pokemon?,berry: freezed == berry ? _self.berry : berry // ignore: cast_nullable_to_non_nullable
-as Berry?,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
+pokemonList: null == pokemonList ? _self.pokemonList : pokemonList // ignore: cast_nullable_to_non_nullable
+as List<Pokemon>,offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
+as int,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
-/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$PokemonCopyWith<$Res>? get pokemon {
-    if (_self.pokemon == null) {
-    return null;
-  }
 
-  return $PokemonCopyWith<$Res>(_self.pokemon!, (value) {
-    return _then(_self.copyWith(pokemon: value));
-  });
-}/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BerryCopyWith<$Res>? get berry {
-    if (_self.berry == null) {
-    return null;
-  }
-
-  return $BerryCopyWith<$Res>(_self.berry!, (value) {
-    return _then(_self.copyWith(berry: value));
-  });
-}
 }
 
 
@@ -176,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Pokemon? pokemon,  Berry? berry,  String searchQuery)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
   return orElse();
 
 }
@@ -197,10 +173,10 @@ return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Pokemon? pokemon,  Berry? berry,  String searchQuery)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)  $default,) {final _that = this;
 switch (_that) {
 case _HomeState():
-return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -217,10 +193,10 @@ return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Pokemon? pokemon,  Berry? berry,  String searchQuery)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)?  $default,) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
   return null;
 
 }
@@ -232,11 +208,17 @@ return $default(_that.pokemon,_that.berry,_that.searchQuery);case _:
 
 
 class _HomeState implements HomeState {
-  const _HomeState({this.pokemon, this.berry, this.searchQuery = 'pikachu'});
+  const _HomeState({final  List<Pokemon> pokemonList = const [], this.offset = 0, this.searchQuery = ''}): _pokemonList = pokemonList;
   
 
-@override final  Pokemon? pokemon;
-@override final  Berry? berry;
+ final  List<Pokemon> _pokemonList;
+@override@JsonKey() List<Pokemon> get pokemonList {
+  if (_pokemonList is EqualUnmodifiableListView) return _pokemonList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_pokemonList);
+}
+
+@override@JsonKey() final  int offset;
 @override@JsonKey() final  String searchQuery;
 
 /// Create a copy of HomeState
@@ -249,16 +231,16 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&(identical(other.berry, berry) || other.berry == berry)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&const DeepCollectionEquality().equals(other._pokemonList, _pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pokemon,berry,searchQuery);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_pokemonList),offset,searchQuery);
 
 @override
 String toString() {
-  return 'HomeState(pokemon: $pokemon, berry: $berry, searchQuery: $searchQuery)';
+  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery)';
 }
 
 
@@ -269,11 +251,11 @@ abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Re
   factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
 @override @useResult
 $Res call({
- Pokemon? pokemon, Berry? berry, String searchQuery
+ List<Pokemon> pokemonList, int offset, String searchQuery
 });
 
 
-@override $PokemonCopyWith<$Res>? get pokemon;@override $BerryCopyWith<$Res>? get berry;
+
 
 }
 /// @nodoc
@@ -286,40 +268,16 @@ class __$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? pokemon = freezed,Object? berry = freezed,Object? searchQuery = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,}) {
   return _then(_HomeState(
-pokemon: freezed == pokemon ? _self.pokemon : pokemon // ignore: cast_nullable_to_non_nullable
-as Pokemon?,berry: freezed == berry ? _self.berry : berry // ignore: cast_nullable_to_non_nullable
-as Berry?,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
+pokemonList: null == pokemonList ? _self._pokemonList : pokemonList // ignore: cast_nullable_to_non_nullable
+as List<Pokemon>,offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
+as int,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
 
-/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$PokemonCopyWith<$Res>? get pokemon {
-    if (_self.pokemon == null) {
-    return null;
-  }
 
-  return $PokemonCopyWith<$Res>(_self.pokemon!, (value) {
-    return _then(_self.copyWith(pokemon: value));
-  });
-}/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BerryCopyWith<$Res>? get berry {
-    if (_self.berry == null) {
-    return null;
-  }
-
-  return $BerryCopyWith<$Res>(_self.berry!, (value) {
-    return _then(_self.copyWith(berry: value));
-  });
-}
 }
 
 // dart format on

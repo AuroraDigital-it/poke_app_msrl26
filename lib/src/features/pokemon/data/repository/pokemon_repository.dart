@@ -21,6 +21,11 @@ class PokemonRepository {
       throw Exception('Errore nel decodificare la risposta per "$name": $e');
     }
   }
+
+  Future<List<String>> getPokemonList(int offset, int limit) async {
+    final dto = await _remoteDatasource.getPokemonList(offset, limit);
+    return dto.results.map((resource) => resource.name).toList();
+  }
 }
 
 @Riverpod(keepAlive: true)

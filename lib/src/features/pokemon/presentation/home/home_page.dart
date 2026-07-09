@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:poke_app/src/features/pokemon/presentation/home/controller/home_controller.dart';
-import 'package:poke_app/src/features/pokemon/presentation/home/widget/pokemon_card.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -12,7 +11,7 @@ class HomePage extends HookConsumerWidget {
     final asyncController = ref.watch(homeControllerProvider);
     final controller = ref.read(homeControllerProvider.notifier);
     final textController = useTextEditingController();
-    
+
     useEffect(() {
       asyncController.whenData((data) {
         textController.text = data.searchQuery;
@@ -22,6 +21,14 @@ class HomePage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("Home Page")),
+      floatingActionButton: textController.text.isNotEmpty
+          ? FloatingActionButton(
+              onPressed: () {
+                controller.clearQuery();
+              },
+              child: Icon(Icons.clear),
+            )
+          : null,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -36,10 +43,27 @@ class HomePage extends HookConsumerWidget {
             ),
             asyncController.when(
               data: (data) {
-                if (data.pokemon == null) {
+                if (data.pokemonList.isEmpty) {
                   return const Center(child: Text('Nessun Pokemon trovato'));
                 }
-                return PokemonCard(pokemon: data.pokemon!);
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: data.pokemonList.length,
+                    itemBuilder: (context, index) {
+                      final pokemon = data.pokemonList[index];
+                      return Card(
+                        child: ListTile(
+                          leading: Image.network(pokemon.imageUrls[0]),
+                          title: Text(pokemon.name.toUpperCase()),
+                          subtitle: Text('ID: ${pokemon.id}'),
+                          onTap: () {
+                            // Naviga alla pagina dei dettagli del Pokemon
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                );
               },
               error: (error, _) {
                 return Center(

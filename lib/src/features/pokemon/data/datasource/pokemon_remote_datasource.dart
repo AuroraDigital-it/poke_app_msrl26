@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:poke_app/src/client/dio_client.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon/pokemon_dto.dart';
+import 'package:poke_app/src/features/pokemon/data/dto/pokemon_list/pokemon_list_dto.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'pokemon_remote_datasource.g.dart';
@@ -17,6 +18,11 @@ class PokemonRemoteDatasource {
     } catch (e) {
       throw Exception('Errore nel decodificare la risposta per "$name": $e');
     }
+  }
+
+  Future<PokemonListDTO> getPokemonList(int offset, int limit) async {
+    final data = await _dio.get('pokemon?offset=$offset&limit=$limit');
+    return PokemonListDTO.fromJson(data.data);
   }
 }
 

@@ -8,9 +8,9 @@
 // Per rigenerare i file .freezed.dart / .g.dart:
 //   dart run build_runner build --delete-conflicting-outputs
 
-import 'package:poke_app/src/features/pokemon/data/dto/named_api_resource/name_api_resource.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:poke_app/src/common/models/named_api_resource.dart';
+ 
 part 'pokemon_dto.freezed.dart';
 part 'pokemon_dto.g.dart';
 

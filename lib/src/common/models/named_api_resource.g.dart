@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'name_api_resource.dart';
+part of 'named_api_resource.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

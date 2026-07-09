@@ -7,6 +7,8 @@ class PokemonMapper {
     return Pokemon(
       id: dto.id,
       name: dto.name,
+      height: dto.height,
+      weight: dto.weight,
       imageUrls: [
         dto.sprites.frontDefault,
         dto.sprites.backDefault,
