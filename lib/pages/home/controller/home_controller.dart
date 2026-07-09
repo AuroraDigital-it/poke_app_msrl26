@@ -1,6 +1,6 @@
-import 'package:poke_app/data/pokemon_service.dart';
 import 'package:poke_app/domain/pokemon/pokemon.dart';
 import 'package:poke_app/pages/home/controller/state/home_state.dart';
+import 'package:poke_app/providers/pokemon/get_pokemon_from_name_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_controller.g.dart';
@@ -23,7 +23,7 @@ class HomeController extends _$HomeController {
   }
 
   Future<Pokemon> fetchPokemon(String query) async {
-    final pokemon = await PokemonService().getPokemonFromName(query);
+    final pokemon = await ref.read(getPokemonFromNameProvider(query).future);
     return pokemon;
   }
 }
