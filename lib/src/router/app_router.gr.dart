@@ -8,58 +8,45 @@
 // ignore_for_file: type=lint
 // coverage:ignore-file
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i5;
-import 'package:flutter/material.dart' as _i6;
-import 'package:poke_app/src/features/item/presentation/detail/item_detail_page.dart'
-    as _i2;
-import 'package:poke_app/src/features/item/presentation/item_list/item_list_page.dart'
-    as _i3;
-import 'package:poke_app/src/features/pokemon/presentation/detail/pokemon_detail.dart'
-    as _i4;
-import 'package:poke_app/src/features/pokemon/presentation/home/home_page.dart'
-    as _i1;
+part of 'app_router.dart';
 
 /// generated route for
-/// [_i1.HomePage]
-class HomeRoute extends _i5.PageRouteInfo<void> {
-  const HomeRoute({List<_i5.PageRouteInfo>? children})
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i1.HomePage();
+      return const HomePage();
     },
   );
 }
 
 /// generated route for
-/// [_i2.ItemDetailPage]
-class ItemDetailRoute extends _i5.PageRouteInfo<ItemDetailRouteArgs> {
-  ItemDetailRoute({
-    required int id,
-    _i6.Key? key,
-    List<_i5.PageRouteInfo>? children,
-  }) : super(
-         ItemDetailRoute.name,
-         args: ItemDetailRouteArgs(id: id, key: key),
-         rawPathParams: {'id': id},
-         initialChildren: children,
-       );
+/// [ItemDetailPage]
+class ItemDetailRoute extends PageRouteInfo<ItemDetailRouteArgs> {
+  ItemDetailRoute({required int id, Key? key, List<PageRouteInfo>? children})
+    : super(
+        ItemDetailRoute.name,
+        args: ItemDetailRouteArgs(id: id, key: key),
+        rawPathParams: {'id': id},
+        initialChildren: children,
+      );
 
   static const String name = 'ItemDetailRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
       final args = data.argsAs<ItemDetailRouteArgs>(
         orElse: () => ItemDetailRouteArgs(id: pathParams.getInt('id')),
       );
-      return _i2.ItemDetailPage(id: args.id, key: args.key);
+      return ItemDetailPage(id: args.id, key: args.key);
     },
   );
 }
@@ -69,7 +56,7 @@ class ItemDetailRouteArgs {
 
   final int id;
 
-  final _i6.Key? key;
+  final Key? key;
 
   @override
   String toString() {
@@ -88,45 +75,42 @@ class ItemDetailRouteArgs {
 }
 
 /// generated route for
-/// [_i3.ItemListPage]
-class ItemListRoute extends _i5.PageRouteInfo<void> {
-  const ItemListRoute({List<_i5.PageRouteInfo>? children})
+/// [ItemListPage]
+class ItemListRoute extends PageRouteInfo<void> {
+  const ItemListRoute({List<PageRouteInfo>? children})
     : super(ItemListRoute.name, initialChildren: children);
 
   static const String name = 'ItemListRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i3.ItemListPage();
+      return const ItemListPage();
     },
   );
 }
 
 /// generated route for
-/// [_i4.PokemonDetail]
-class PokemonDetailRoute extends _i5.PageRouteInfo<PokemonDetailRouteArgs> {
-  PokemonDetailRoute({
-    _i6.Key? key,
-    required int id,
-    List<_i5.PageRouteInfo>? children,
-  }) : super(
-         PokemonDetailRoute.name,
-         args: PokemonDetailRouteArgs(key: key, id: id),
-         rawPathParams: {'id': id},
-         initialChildren: children,
-       );
+/// [PokemonDetail]
+class PokemonDetailRoute extends PageRouteInfo<PokemonDetailRouteArgs> {
+  PokemonDetailRoute({Key? key, required int id, List<PageRouteInfo>? children})
+    : super(
+        PokemonDetailRoute.name,
+        args: PokemonDetailRouteArgs(key: key, id: id),
+        rawPathParams: {'id': id},
+        initialChildren: children,
+      );
 
   static const String name = 'PokemonDetailRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
       final args = data.argsAs<PokemonDetailRouteArgs>(
         orElse: () => PokemonDetailRouteArgs(id: pathParams.getInt('id')),
       );
-      return _i4.PokemonDetail(key: args.key, id: args.id);
+      return PokemonDetail(key: args.key, id: args.id);
     },
   );
 }
@@ -134,7 +118,7 @@ class PokemonDetailRoute extends _i5.PageRouteInfo<PokemonDetailRouteArgs> {
 class PokemonDetailRouteArgs {
   const PokemonDetailRouteArgs({this.key, required this.id});
 
-  final _i6.Key? key;
+  final Key? key;
 
   final int id;
 

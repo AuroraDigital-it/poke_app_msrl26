@@ -34,14 +34,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  json_annotation: ^4.11.0
   freezed_annotation: ^3.1.0
   dio: ^5.10.0
-  hooks_riverpod: ">=3.1.0 <4.0.0"
   flutter_hooks: ^0.21.3+1
-  riverpod_annotation: ">=4.0.0 <5.0.0"
   cached_network_image: ^3.4.1
-  auto_route: ^11.1.0
+  auto_route: ^11.0.0
+
+  # Held on analyzer 9.x: see the dev_dependencies note below.
+  json_annotation: ^4.11.0
+  hooks_riverpod: ^3.0.0
+  riverpod_annotation: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -53,11 +55,30 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
-  riverpod_generator: 4.0.3
   build_runner: ^2.15.1
-  json_serializable: 6.13.0
-  freezed: 3.2.5
-  auto_route_generator: 10.4.0
+
+  # The generators below share a single `analyzer`, and no version of
+  # auto_route_generator supports analyzer 12, where riverpod_generator lives:
+  #   riverpod_generator 4.0.4   -> analyzer ^12.0.0
+  #   auto_route_generator 10.5  -> analyzer >=9.0.0 <11.0.0
+  #   auto_route_generator 10.6  -> lean_builder 1.2.0 -> analyzer ^13.0.0
+  #
+  # Meeting auto_route up on analyzer 13 instead does not work, on two counts:
+  #   - analyzer >=13.1.0 needs meta ^1.18.3, but the Flutter SDK pins meta
+  #     1.18.0, so 13.0.0 is the ceiling here;
+  #   - forcing riverpod_generator onto analyzer 13.0.0 fails to compile, as
+  #     analyzer 13 dropped AST types it and riverpod_analyzer_utils rely on
+  #     (NamedExpression, DefaultFormalParameter, ...).
+  #
+  # Analyzer 9 is therefore the newest version the whole set agrees on, and is
+  # pinned so the solver cannot drift into the gap. Drop this pin once
+  # riverpod_generator supports analyzer 13; auto_route_generator 10.6+ and
+  # freezed 4.x can then go in together.
+  analyzer: ^9.0.0
+  riverpod_generator: ^4.0.0
+  json_serializable: ^6.9.0
+  freezed: ^3.0.0
+  auto_route_generator: ^10.4.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -4,6 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:poke_app/src/features/pokemon/presentation/detail/widget/pokemon_card.dart';
 import 'package:poke_app/src/features/pokemon/providers/get_pokemon_by_id/get_pokemon_by_id_provider.dart';
 
+// Named explicitly: the class has no `Page` suffix for auto_route to swap for
+// `Route`, so the generated route would otherwise collide with this widget.
 @RoutePage(name: 'PokemonDetailRoute')
 class PokemonDetail extends ConsumerWidget {
   const PokemonDetail({super.key, @PathParam('id') required this.id});
