@@ -12,9 +12,9 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: HomeRoute.page, path: '/', initial: true),
-    AutoRoute(page: PokemonDetailRoute.page, path: '/detail/:id'),
-    AutoRoute(page: ItemListRoute.page, path: '/item-list'),
-    AutoRoute(page: ItemDetailRoute.page, path: '/item-detail/:id'),
+    AutoRoute(page: PokemonDetailRoute.page, path: '/pokemon/:id'),
+    AutoRoute(page: ItemListRoute.page, path: '/items'),
+    AutoRoute(page: ItemDetailRoute.page, path: '/items/:id'),
   ];
 }
 
