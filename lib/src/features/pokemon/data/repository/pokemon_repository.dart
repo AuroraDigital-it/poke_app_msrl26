@@ -1,3 +1,4 @@
+import 'package:poke_app/src/client/remote_caching/remote_caching_provider.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/local/shared/pokemon_shared_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_local_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_remote_datasource.dart';
@@ -15,16 +16,19 @@ part 'pokemon_repository.g.dart';
 class PokemonRepository {
   final PokemonRemoteDatasource _remoteDatasource;
   final PokemonLocalDatasource _localDatasource;
+  final RemoteCaching _remoteCaching;
 
   PokemonRepository({
     required PokemonRemoteDatasource remoteDatasource,
     required PokemonLocalDatasource localDatasource,
+    required RemoteCaching remoteCaching,
   }) : _remoteDatasource = remoteDatasource,
-       _localDatasource = localDatasource;
+       _localDatasource = localDatasource,
+       _remoteCaching = remoteCaching;
 
   Future<Pokemon> getPokemonByName(String name) async {
     //PRENDO IL DATO GREZZO
-    final dto = await RemoteCaching.instance.call<PokemonDTO>(
+    final dto = await _remoteCaching.call<PokemonDTO>(
       'pokemon_$name',
       remote: () => _remoteDatasource.getPokemonByName(name),
       fromJson: (dto) => PokemonDTO.fromJson(dto as Map<String, dynamic>),
@@ -35,7 +39,7 @@ class PokemonRepository {
   }
 
   Future<List<String>> getPokemonList({required int offset, required int limit}) async {
-    final dto = await RemoteCaching.instance.call<PokemonListDTO>(
+    final dto = await _remoteCaching.call<PokemonListDTO>(
       'pokemon_list_$offset',
       remote: () => _remoteDatasource.getPokemonList(offset: offset, limit: limit),
       fromJson: (dto) => PokemonListDTO.fromJson(dto as Map<String, dynamic>),
@@ -45,7 +49,7 @@ class PokemonRepository {
   }
 
   Future<Pokemon> getPokemonById(int id) async {
-    final dto = await RemoteCaching.instance.call<PokemonDTO>(
+    final dto = await _remoteCaching.call<PokemonDTO>(
       'pokemon_$id',
       remote: () => _remoteDatasource.getPokemonById(id),
       fromJson: (dto) => PokemonDTO.fromJson(dto as Map<String, dynamic>),
@@ -79,5 +83,10 @@ Future<PokemonRepository> pokemonRepository(Ref ref) async {
   } else {
     remoteDatasource = ref.read(pokemonRemoteDatasourceProvider);
   }
-  return PokemonRepository(remoteDatasource: remoteDatasource, localDatasource: localDatasource);
+  final remoteCaching = await ref.read(remoteCachingProvider.future);
+  return PokemonRepository(
+    remoteDatasource: remoteDatasource,
+    localDatasource: localDatasource,
+    remoteCaching: remoteCaching,
+  );
 }
