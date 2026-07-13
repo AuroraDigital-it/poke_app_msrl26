@@ -6,7 +6,7 @@ part 'get_pokemon_by_id_provider.g.dart';
 
 @riverpod
 Future<Pokemon> getPokemonById(Ref ref, int id) async {
-  final repository = ref.read(pokemonRepositoryProvider);
+  final repository = await ref.read(pokemonRepositoryProvider.future);
   final pokemon = await repository.getPokemonById(id);
   return pokemon;
 }

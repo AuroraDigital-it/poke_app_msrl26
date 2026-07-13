@@ -6,5 +6,5 @@ part 'pokemon_dio_client.g.dart';
 
 @riverpod
 Dio pokemonDioClient(Ref ref) {
-  return ref.read(dioClientProvider('https://pokeapi.co/api/v2'));
+  return ref.read(dioClientProvider('https://pokeapi.co/api/v2/'));
 }

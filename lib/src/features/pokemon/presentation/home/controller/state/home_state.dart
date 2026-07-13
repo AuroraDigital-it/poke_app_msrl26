@@ -9,5 +9,6 @@ abstract class HomeState with _$HomeState {
     @Default([]) List<Pokemon> pokemonList,
     @Default(0) int offset,
     @Default('') String searchQuery,
+    @Default([]) List<int> favoritePokemonIds,
   }) = _HomeState;
 }

@@ -6,7 +6,7 @@ part 'get_pokemon_list_provider.g.dart';
 
 @riverpod
 Future<List<Pokemon>> getPokemonList(Ref ref, {int offset = 0, int limit = 20}) async {
-  final repository = ref.read(pokemonRepositoryProvider);
+  final repository = await ref.read(pokemonRepositoryProvider.future);
   final list = await repository.getPokemonList(offset: offset, limit: limit);
   final pokemons = await Future.wait(list.map((name) => repository.getPokemonByName(name)));
   return pokemons;

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState {
 
- List<Pokemon> get pokemonList; int get offset; String get searchQuery;
+ List<Pokemon> get pokemonList; int get offset; String get searchQuery; List<int> get favoritePokemonIds;
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&const DeepCollectionEquality().equals(other.pokemonList, pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&const DeepCollectionEquality().equals(other.pokemonList, pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&const DeepCollectionEquality().equals(other.favoritePokemonIds, favoritePokemonIds));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(pokemonList),offset,searchQuery);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(pokemonList),offset,searchQuery,const DeepCollectionEquality().hash(favoritePokemonIds));
 
 @override
 String toString() {
-  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery)';
+  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery, favoritePokemonIds: $favoritePokemonIds)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $HomeStateCopyWith<$Res>  {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
 @useResult
 $Res call({
- List<Pokemon> pokemonList, int offset, String searchQuery
+ List<Pokemon> pokemonList, int offset, String searchQuery, List<int> favoritePokemonIds
 });
 
 
@@ -62,12 +62,13 @@ class _$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,Object? favoritePokemonIds = null,}) {
   return _then(_self.copyWith(
 pokemonList: null == pokemonList ? _self.pokemonList : pokemonList // ignore: cast_nullable_to_non_nullable
 as List<Pokemon>,offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
 as int,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
-as String,
+as String,favoritePokemonIds: null == favoritePokemonIds ? _self.favoritePokemonIds : favoritePokemonIds // ignore: cast_nullable_to_non_nullable
+as List<int>,
   ));
 }
 
@@ -152,10 +153,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery,  List<int> favoritePokemonIds)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery,_that.favoritePokemonIds);case _:
   return orElse();
 
 }
@@ -173,10 +174,10 @@ return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Pokemon> pokemonList,  int offset,  String searchQuery,  List<int> favoritePokemonIds)  $default,) {final _that = this;
 switch (_that) {
 case _HomeState():
-return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery,_that.favoritePokemonIds);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +194,10 @@ return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Pokemon> pokemonList,  int offset,  String searchQuery)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Pokemon> pokemonList,  int offset,  String searchQuery,  List<int> favoritePokemonIds)?  $default,) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
+return $default(_that.pokemonList,_that.offset,_that.searchQuery,_that.favoritePokemonIds);case _:
   return null;
 
 }
@@ -208,7 +209,7 @@ return $default(_that.pokemonList,_that.offset,_that.searchQuery);case _:
 
 
 class _HomeState implements HomeState {
-  const _HomeState({final  List<Pokemon> pokemonList = const [], this.offset = 0, this.searchQuery = ''}): _pokemonList = pokemonList;
+  const _HomeState({final  List<Pokemon> pokemonList = const [], this.offset = 0, this.searchQuery = '', final  List<int> favoritePokemonIds = const []}): _pokemonList = pokemonList,_favoritePokemonIds = favoritePokemonIds;
   
 
  final  List<Pokemon> _pokemonList;
@@ -220,6 +221,13 @@ class _HomeState implements HomeState {
 
 @override@JsonKey() final  int offset;
 @override@JsonKey() final  String searchQuery;
+ final  List<int> _favoritePokemonIds;
+@override@JsonKey() List<int> get favoritePokemonIds {
+  if (_favoritePokemonIds is EqualUnmodifiableListView) return _favoritePokemonIds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_favoritePokemonIds);
+}
+
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +239,16 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&const DeepCollectionEquality().equals(other._pokemonList, _pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&const DeepCollectionEquality().equals(other._pokemonList, _pokemonList)&&(identical(other.offset, offset) || other.offset == offset)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&const DeepCollectionEquality().equals(other._favoritePokemonIds, _favoritePokemonIds));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_pokemonList),offset,searchQuery);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_pokemonList),offset,searchQuery,const DeepCollectionEquality().hash(_favoritePokemonIds));
 
 @override
 String toString() {
-  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery)';
+  return 'HomeState(pokemonList: $pokemonList, offset: $offset, searchQuery: $searchQuery, favoritePokemonIds: $favoritePokemonIds)';
 }
 
 
@@ -251,7 +259,7 @@ abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Re
   factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<Pokemon> pokemonList, int offset, String searchQuery
+ List<Pokemon> pokemonList, int offset, String searchQuery, List<int> favoritePokemonIds
 });
 
 
@@ -268,12 +276,13 @@ class __$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? pokemonList = null,Object? offset = null,Object? searchQuery = null,Object? favoritePokemonIds = null,}) {
   return _then(_HomeState(
 pokemonList: null == pokemonList ? _self._pokemonList : pokemonList // ignore: cast_nullable_to_non_nullable
 as List<Pokemon>,offset: null == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
 as int,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
-as String,
+as String,favoritePokemonIds: null == favoritePokemonIds ? _self._favoritePokemonIds : favoritePokemonIds // ignore: cast_nullable_to_non_nullable
+as List<int>,
   ));
 }
 

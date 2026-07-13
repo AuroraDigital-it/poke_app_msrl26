@@ -58,7 +58,7 @@ final class GetPokemonByIdProvider
   }
 }
 
-String _$getPokemonByIdHash() => r'85c5a107cf64fccf94a1bafbdcbc68895423b11d';
+String _$getPokemonByIdHash() => r'215f01093859ee622a02b37edabed98883586474';
 
 final class GetPokemonByIdFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<Pokemon>, int> {

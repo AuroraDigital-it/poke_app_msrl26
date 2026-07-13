@@ -47,4 +47,4 @@ final class PokemonDioClientProvider extends $FunctionalProvider<Dio, Dio, Dio>
   }
 }
 
-String _$pokemonDioClientHash() => r'33efc64a5adbcc7ecf9b60afb4aec72191a58a4f';
+String _$pokemonDioClientHash() => r'51809f2fc399eeed0ed12b8a35af77e020b3751e';

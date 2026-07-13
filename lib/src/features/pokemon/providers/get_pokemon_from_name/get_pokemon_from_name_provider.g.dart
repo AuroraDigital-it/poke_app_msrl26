@@ -59,7 +59,7 @@ final class GetPokemonFromNameProvider
 }
 
 String _$getPokemonFromNameHash() =>
-    r'8bf13719a5e47542a7c917f0d5c3ee7b25f74fc2';
+    r'c0b09f0495094da1527c2e60c6f2e85440fb4370';
 
 final class GetPokemonFromNameFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<Pokemon>, String> {

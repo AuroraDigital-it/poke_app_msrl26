@@ -50,6 +50,9 @@ dependencies:
   lottie: ^3.5.1
   talker_flutter: ^5.1.17
   talker_dio_logger: ^5.1.17
+  shared_preferences: ^2.5.5
+  flutter_secure_storage: ^10.3.1
+  remote_caching: ^1.0.19
 
 dev_dependencies:
   flutter_test:

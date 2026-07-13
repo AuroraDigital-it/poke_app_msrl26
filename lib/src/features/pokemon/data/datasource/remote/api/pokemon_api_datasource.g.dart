@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pokemon_remote_datasource.dart';
+part of 'pokemon_api_datasource.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -15,11 +15,11 @@ final pokemonRemoteDatasourceProvider = PokemonRemoteDatasourceProvider._();
 final class PokemonRemoteDatasourceProvider
     extends
         $FunctionalProvider<
-          PokemonDatasource,
-          PokemonDatasource,
-          PokemonDatasource
+          PokemonRemoteDatasource,
+          PokemonRemoteDatasource,
+          PokemonRemoteDatasource
         >
-    with $Provider<PokemonDatasource> {
+    with $Provider<PokemonRemoteDatasource> {
   PokemonRemoteDatasourceProvider._()
     : super(
         from: null,
@@ -36,23 +36,23 @@ final class PokemonRemoteDatasourceProvider
 
   @$internal
   @override
-  $ProviderElement<PokemonDatasource> $createElement(
+  $ProviderElement<PokemonRemoteDatasource> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  PokemonDatasource create(Ref ref) {
+  PokemonRemoteDatasource create(Ref ref) {
     return pokemonRemoteDatasource(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(PokemonDatasource value) {
+  Override overrideWithValue(PokemonRemoteDatasource value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<PokemonDatasource>(value),
+      providerOverride: $SyncValueProvider<PokemonRemoteDatasource>(value),
     );
   }
 }
 
 String _$pokemonRemoteDatasourceHash() =>
-    r'10b69de884f9cb3645087b4ef4f6fe01def9bb40';
+    r'1c03504bb8d52f4d1e4b8813064be3775bfdb4d9';

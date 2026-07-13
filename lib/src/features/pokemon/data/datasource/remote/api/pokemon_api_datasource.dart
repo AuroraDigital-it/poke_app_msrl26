@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:poke_app/src/client/dio/pokemon_dio_client.dart';
 import 'package:poke_app/src/common/exception/data_exception/data_exception.dart';
-import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
+import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_remote_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon/pokemon_dto.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon_list/pokemon_list_dto.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'pokemon_remote_datasource.g.dart';
+part 'pokemon_api_datasource.g.dart';
 
-class PokemonRemoteDatasource implements PokemonDatasource {
+class PokemonApiDatasource implements PokemonRemoteDatasource {
   final Dio _dio;
-  PokemonRemoteDatasource({required Dio dio}) : _dio = dio;
+  PokemonApiDatasource({required Dio dio}) : _dio = dio;
 
   @override
   Future<PokemonDTO> getPokemonByName(String name) async {
@@ -50,7 +50,7 @@ class PokemonRemoteDatasource implements PokemonDatasource {
 }
 
 @Riverpod(keepAlive: true)
-PokemonDatasource pokemonRemoteDatasource(Ref ref) {
+PokemonRemoteDatasource pokemonRemoteDatasource(Ref ref) {
   final dio = ref.read(pokemonDioClientProvider);
-  return PokemonRemoteDatasource(dio: dio);
+  return PokemonApiDatasource(dio: dio);
 }

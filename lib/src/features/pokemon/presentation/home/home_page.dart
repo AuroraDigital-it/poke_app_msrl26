@@ -81,6 +81,7 @@ class HomePage extends HookConsumerWidget {
                       final color = typeColors.of(
                         pokemon.types.isNotEmpty ? pokemon.types[0] : 'normal',
                       );
+                      final isFavorite = data.favoritePokemonIds.contains(pokemon.id);
                       return Card(
                         color: color.withValues(alpha: 0.2),
                         child: ListTile(
@@ -90,6 +91,12 @@ class HomePage extends HookConsumerWidget {
                             height: 50,
                             placeholder: (context, url) => CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Icon(Icons.error),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () => controller.setFavoritePokemon(pokemon.id),
+                            icon: Icon(
+                              isFavorite ? Icons.favorite : Icons.favorite_border,
+                            ),
                           ),
                           title: Text(pokemon.name.toUpperCase()),
                           subtitle: Text('ID: ${pokemon.id}'),

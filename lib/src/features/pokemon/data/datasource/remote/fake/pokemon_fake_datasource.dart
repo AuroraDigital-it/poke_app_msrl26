@@ -1,13 +1,13 @@
 import 'package:poke_app/src/common/models/named_api_resource.dart';
-import 'package:poke_app/src/features/pokemon/data/datasource/fake/mock/pokemon_mock.dart';
-import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
+import 'package:poke_app/src/features/pokemon/data/datasource/remote/fake/mock/pokemon_mock.dart';
+import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_remote_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon/pokemon_dto.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon_list/pokemon_list_dto.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'pokemon_fake_datasource.g.dart';
 
-class PokemonFakeDatasource implements PokemonDatasource {
+class PokemonFakeDatasource implements PokemonRemoteDatasource {
   PokemonFakeDatasource();
 
   @override
@@ -32,6 +32,6 @@ class PokemonFakeDatasource implements PokemonDatasource {
 }
 
 @Riverpod(keepAlive: true)
-PokemonDatasource pokemonFakeDatasource(Ref ref) {
+PokemonRemoteDatasource pokemonFakeDatasource(Ref ref) {
   return PokemonFakeDatasource();
 }
