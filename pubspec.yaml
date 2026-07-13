@@ -53,6 +53,7 @@ dependencies:
   shared_preferences: ^2.5.5
   flutter_secure_storage: ^10.3.1
   remote_caching: ^1.0.19
+  local_auth: ^3.0.2
 
 dev_dependencies:
   flutter_test:
