@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:poke_app/src/common/widget/async_view/async_view.dart';
 import 'package:poke_app/src/features/item/domain/flavor_text_entries/flavor_text_entries.dart';
 import 'package:poke_app/src/features/item/domain/item_entity/item_entity.dart';
 import 'package:poke_app/src/features/item/provider/get_item_by_id/get_item_by_id_provider.dart';
@@ -15,16 +16,11 @@ class ItemDetailPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: ref
-          .watch(getItemByIdProvider(id))
-          .when(
-            data: (item) => _ItemDetailView(item: item),
-            error: (error, _) => _ErrorView(
-              error: error,
-              onRetry: () => ref.invalidate(getItemByIdProvider(id)),
-            ),
-            loading: () => const Center(child: CircularProgressIndicator()),
-          ),
+      body: AsyncView<ItemEntity>(
+        asyncValue: ref.watch(getItemByIdProvider(id)),
+        onData: (item) => _ItemDetailView(item: item),
+        onRetry: () => ref.invalidate(getItemByIdProvider(id)),
+      ),
     );
   }
 }
@@ -193,9 +189,7 @@ class _FlavorCard extends StatelessWidget {
           children: [
             Text(
               _prettyName(flavor.versionGroup),
-              style: Theme.of(
-                context,
-              ).textTheme.labelMedium?.copyWith(color: colorScheme.primary),
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(color: colorScheme.primary),
             ),
             const SizedBox(height: 6),
             Text(flavor.text, style: Theme.of(context).textTheme.bodyMedium),
@@ -216,32 +210,6 @@ class _SectionTitle extends StatelessWidget {
     return Text(
       title,
       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-    );
-  }
-}
-
-class _ErrorView extends StatelessWidget {
-  const _ErrorView({required this.error, required this.onRetry});
-
-  final Object error;
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.error_outline, size: 64, color: Theme.of(context).colorScheme.error),
-            const SizedBox(height: 16),
-            Text('Errore: $error', textAlign: TextAlign.center),
-            const SizedBox(height: 16),
-            FilledButton(onPressed: onRetry, child: const Text('Riprova')),
-          ],
-        ),
-      ),
     );
   }
 }

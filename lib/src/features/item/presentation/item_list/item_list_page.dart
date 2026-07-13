@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:poke_app/src/common/widget/async_view/async_view.dart';
 import 'package:poke_app/src/features/item/presentation/item_list/controller/item_list_controller.dart';
 import 'package:poke_app/src/router/app_router.dart';
 
@@ -45,8 +46,10 @@ class ItemListPage extends HookConsumerWidget {
               },
               decoration: InputDecoration(labelText: 'Cerca Item', border: OutlineInputBorder()),
             ),
-            asyncController.when(
-              data: (data) {
+            AsyncView(
+              asyncValue: asyncController,
+              onRetry: () => ref.invalidate(itemListControllerProvider),
+              onData: (data) {
                 if (data.itemEntityList.isEmpty) {
                   return const Center(child: Text('Nessun item trovato'));
                 }
@@ -75,17 +78,6 @@ class ItemListPage extends HookConsumerWidget {
                     },
                   ),
                 );
-              },
-              error: (error, _) {
-                return Center(
-                  child: Text(
-                    'Errore: ${error.toString()}',
-                    style: const TextStyle(color: Colors.red),
-                  ),
-                );
-              },
-              loading: () {
-                return const Center(child: CircularProgressIndicator());
               },
             ),
           ],

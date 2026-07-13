@@ -12,11 +12,7 @@ class PokemonFakeDatasource implements PokemonDatasource {
 
   @override
   Future<PokemonDTO> getPokemonByName(String name) async {
-    try {
-      return mockPikachu;
-    } catch (e) {
-      throw Exception('Errore nel decodificare la risposta per "$name": $e');
-    }
+    return mockPikachu;
   }
 
   @override

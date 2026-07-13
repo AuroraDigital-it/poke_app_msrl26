@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:poke_app/src/client/dio_client.dart';
+import 'package:poke_app/src/client/dio/dio_client.dart';
+import 'package:poke_app/src/common/exception/data_exception/data_exception.dart';
 import 'package:poke_app/src/features/item/data/datasource/item_datasource.dart';
 import 'package:poke_app/src/features/item/data/dto/item/item_dto.dart';
 import 'package:poke_app/src/features/item/data/dto/item_list_dto/item_list_dto.dart';
@@ -15,6 +16,8 @@ class ItemRemoteDatasource implements ItemDatasource {
     try {
       final response = await _dio.get('item/$id');
       return ItemDTO.fromJson(response.data);
+    } on DioException catch (e) {
+      throw e.error as DataException;
     } on Exception catch (e) {
       throw Exception('Errore nel decodificare la risposta per l\'ID "$id": $e');
     }
@@ -25,8 +28,10 @@ class ItemRemoteDatasource implements ItemDatasource {
     try {
       final response = await _dio.get('item/$name');
       return ItemDTO.fromJson(response.data);
+    } on DioException catch (e) {
+      throw e.error as DataException;
     } on Exception catch (e) {
-      throw Exception('Errore nel decodificare la risposta per "$name": $e');
+      throw Exception('Errore nel decodificare la risposta per il nome "$name": $e');
     }
   }
 
@@ -35,6 +40,8 @@ class ItemRemoteDatasource implements ItemDatasource {
     try {
       final response = await _dio.get('item');
       return ItemListDTO.fromJson(response.data);
+    } on DioException catch (e) {
+      throw e.error as DataException;
     } on Exception catch (e) {
       throw Exception('Errore nel decodificare la risposta per la lista degli oggetti: $e');
     }

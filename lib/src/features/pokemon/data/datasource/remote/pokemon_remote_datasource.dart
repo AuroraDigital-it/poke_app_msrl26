@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:poke_app/src/client/dio_client.dart';
+import 'package:poke_app/src/client/dio/dio_client.dart';
+import 'package:poke_app/src/common/exception/data_exception/data_exception.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon/pokemon_dto.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon_list/pokemon_list_dto.dart';
@@ -16,15 +17,23 @@ class PokemonRemoteDatasource implements PokemonDatasource {
     try {
       final res = await _dio.get('pokemon/$name');
       return PokemonDTO.fromJson(res.data);
-    } catch (e) {
-      throw Exception('Errore nel decodificare la risposta per "$name": $e');
+    } on DioException catch (e) {
+      throw e.error as DataException;
+    } on Exception catch (e) {
+      throw Exception('Errore nel decodificare la risposta per il nome "$name": $e');
     }
   }
 
   @override
   Future<PokemonListDTO> getPokemonList({required int offset, required int limit}) async {
-    final data = await _dio.get('pokemon?offset=$offset&limit=$limit');
-    return PokemonListDTO.fromJson(data.data);
+    try {
+      final data = await _dio.get('pokemon?offset=$offset&limit=$limit');
+      return PokemonListDTO.fromJson(data.data);
+    } on DioException catch (e) {
+      throw e.error as DataException;
+    } on Exception catch (e) {
+      throw Exception('Errore nel decodificare la risposta per la lista dei pokemon: $e');
+    }
   }
 
   @override
@@ -32,7 +41,9 @@ class PokemonRemoteDatasource implements PokemonDatasource {
     try {
       final res = await _dio.get('pokemon/$id');
       return PokemonDTO.fromJson(res.data);
-    } catch (e) {
+    } on DioException catch (e) {
+      throw e.error as DataException;
+    } on Exception catch (e) {
       throw Exception('Errore nel decodificare la risposta per l\'ID "$id": $e');
     }
   }

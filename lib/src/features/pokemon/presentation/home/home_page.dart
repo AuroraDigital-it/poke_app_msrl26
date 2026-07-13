@@ -3,9 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:poke_app/src/client/talker/talker_client.dart';
+import 'package:poke_app/src/common/widget/async_view/async_view.dart';
 import 'package:poke_app/src/features/pokemon/presentation/home/controller/home_controller.dart';
+import 'package:poke_app/src/features/pokemon/presentation/home/controller/state/home_state.dart';
 import 'package:poke_app/src/router/app_router.dart';
 import 'package:poke_app/theme/theme_light.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 @RoutePage()
 class HomePage extends HookConsumerWidget {
@@ -34,6 +38,15 @@ class HomePage extends HookConsumerWidget {
               context.router.push(const ItemListRoute());
             },
           ),
+          IconButton(
+            icon: Icon(Icons.bug_report),
+            onPressed: () {
+              final talker = ref.read(talkerProvider);
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => TalkerScreen(talker: talker)));
+            },
+          ),
         ],
       ),
       floatingActionButton: textController.text.isNotEmpty
@@ -56,11 +69,9 @@ class HomePage extends HookConsumerWidget {
               },
               decoration: InputDecoration(labelText: 'Cerca Pokemon', border: OutlineInputBorder()),
             ),
-            asyncController.when(
-              data: (data) {
-                if (data.pokemonList.isEmpty) {
-                  return const Center(child: Text('Nessun Pokemon trovato'));
-                }
+            AsyncView<HomeState>(
+              asyncValue: asyncController,
+              onData: (data) {
                 return Expanded(
                   child: ListView.builder(
                     itemCount: data.pokemonList.length,
@@ -91,17 +102,7 @@ class HomePage extends HookConsumerWidget {
                   ),
                 );
               },
-              error: (error, _) {
-                return Center(
-                  child: Text(
-                    'Errore: ${error.toString()}',
-                    style: const TextStyle(color: Colors.red),
-                  ),
-                );
-              },
-              loading: () {
-                return const Center(child: CircularProgressIndicator());
-              },
+              onRetry: () => ref.refresh(homeControllerProvider),
             ),
           ],
         ),

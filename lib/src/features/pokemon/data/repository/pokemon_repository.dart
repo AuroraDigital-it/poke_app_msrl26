@@ -14,14 +14,10 @@ class PokemonRepository {
     : _remoteDatasource = remoteDatasource;
 
   Future<Pokemon> getPokemonByName(String name) async {
-    try {
-      //PRENDO IL DATO GREZZO
-      final dto = await _remoteDatasource.getPokemonByName(name);
-      // LO MAPPO PER L'ENTITA' E LO RITORNO AL CHIAMANTE
-      return PokemonMapper.fromDTO(dto);
-    } catch (e) {
-      throw Exception('Errore nel decodificare la risposta per "$name": $e');
-    }
+    //PRENDO IL DATO GREZZO
+    final dto = await _remoteDatasource.getPokemonByName(name);
+    // LO MAPPO PER L'ENTITA' E LO RITORNO AL CHIAMANTE
+    return PokemonMapper.fromDTO(dto);
   }
 
   Future<List<String>> getPokemonList({required int offset, required int limit}) async {
@@ -30,12 +26,8 @@ class PokemonRepository {
   }
 
   Future<Pokemon> getPokemonById(int id) async {
-    try {
-      final dto = await _remoteDatasource.getPokemonById(id);
-      return PokemonMapper.fromDTO(dto);
-    } catch (e) {
-      throw Exception('Errore nel decodificare la risposta per l\'ID "$id": $e');
-    }
+    final dto = await _remoteDatasource.getPokemonById(id);
+    return PokemonMapper.fromDTO(dto);
   }
 }
 
