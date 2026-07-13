@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 
-part 'client/dio_client.g.dart';
+part 'dio_client.g.dart';
 
 @Riverpod(keepAlive: true)
 Dio dioClient(Ref ref, String baseUrl) {
