@@ -48,12 +48,16 @@ dependencies:
   hooks_riverpod: ^3.0.0
   riverpod_annotation: ^4.0.2
   lottie: ^3.5.1
-  talker_flutter: ^5.1.17
+  # Pinned a 5.1.16: la 5.1.17 tira share_plus 13 -> win32 6, incompatibile
+  # con file_picker 11 (scritto per l'API win32 5). Vedi conflitto risolto.
+  talker_flutter: 5.1.16
   talker_dio_logger: ^5.1.17
   shared_preferences: ^2.5.5
   flutter_secure_storage: ^10.3.1
   remote_caching: ^1.0.19
   local_auth: ^3.0.2
+  image_picker: ^1.2.3
+  file_picker: ^11.0.2
 
 dev_dependencies:
   flutter_test:
