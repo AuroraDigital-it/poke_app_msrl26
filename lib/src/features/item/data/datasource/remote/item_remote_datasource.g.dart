@@ -49,4 +49,4 @@ final class ItemRemoteDatasourceProvider
 }
 
 String _$itemRemoteDatasourceHash() =>
-    r'941789a984da69a83e77a4fc6ccc7d9733680a42';
+    r'388b3b2a9d9a48ed8a3375b10298784b8cfbefdd';

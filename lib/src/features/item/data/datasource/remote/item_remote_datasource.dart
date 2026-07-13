@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:poke_app/src/client/dio/dio_client.dart';
+import 'package:poke_app/src/client/dio/pokemon_dio_client.dart';
 import 'package:poke_app/src/common/exception/data_exception/data_exception.dart';
 import 'package:poke_app/src/features/item/data/datasource/item_datasource.dart';
 import 'package:poke_app/src/features/item/data/dto/item/item_dto.dart';
@@ -50,6 +50,6 @@ class ItemRemoteDatasource implements ItemDatasource {
 
 @riverpod
 ItemDatasource itemRemoteDatasource(Ref ref) {
-  final dio = ref.read(dioClientProvider);
+  final dio = ref.read(pokemonDioClientProvider);
   return ItemRemoteDatasource(dio: dio);
 }

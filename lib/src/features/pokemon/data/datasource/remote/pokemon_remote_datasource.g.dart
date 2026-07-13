@@ -55,4 +55,4 @@ final class PokemonRemoteDatasourceProvider
 }
 
 String _$pokemonRemoteDatasourceHash() =>
-    r'2a66d56fd0863ad7122b5f61a62bf37bcb176f7e';
+    r'10b69de884f9cb3645087b4ef4f6fe01def9bb40';

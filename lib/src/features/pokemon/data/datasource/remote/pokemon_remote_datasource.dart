@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:poke_app/src/client/dio/dio_client.dart';
+import 'package:poke_app/src/client/dio/pokemon_dio_client.dart';
 import 'package:poke_app/src/common/exception/data_exception/data_exception.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/dto/pokemon/pokemon_dto.dart';
@@ -51,6 +51,6 @@ class PokemonRemoteDatasource implements PokemonDatasource {
 
 @Riverpod(keepAlive: true)
 PokemonDatasource pokemonRemoteDatasource(Ref ref) {
-  final dio = ref.read(dioClientProvider);
+  final dio = ref.read(pokemonDioClientProvider);
   return PokemonRemoteDatasource(dio: dio);
 }
