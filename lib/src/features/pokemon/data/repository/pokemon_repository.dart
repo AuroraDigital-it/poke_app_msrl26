@@ -1,4 +1,5 @@
 import 'package:poke_app/src/client/remote_caching/remote_caching_provider.dart';
+import 'package:poke_app/src/common/env/app_env.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/local/shared/pokemon_shared_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_local_datasource.dart';
 import 'package:poke_app/src/features/pokemon/data/datasource/pokemon_remote_datasource.dart';
@@ -73,12 +74,10 @@ class PokemonRepository {
 
 @Riverpod(keepAlive: true)
 Future<PokemonRepository> pokemonRepository(Ref ref) async {
-  // Read env variables if use fake data
-  final useFakeData = (const bool.fromEnvironment('USE_FAKE_DATA'));
   late PokemonRemoteDatasource remoteDatasource;
   final localDatasource = await ref.read(pokemonSharedDatasourceProvider.future);
 
-  if (useFakeData) {
+  if (AppEnv.useFakeData) {
     remoteDatasource = ref.read(pokemonFakeDatasourceProvider);
   } else {
     remoteDatasource = ref.read(pokemonRemoteDatasourceProvider);

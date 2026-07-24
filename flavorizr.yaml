@@ -1,0 +1,74 @@
+# Configurazione di flutter_flavorizr.
+#
+# Descrive le tre varianti dell'app. `dart run flutter_flavorizr` legge questo
+# file e scrive al posto nostro la configurazione nativa: i productFlavors di
+# Android e i target/scheme/xcconfig di Xcode.
+#
+# Si lancia UNA volta (e si rilancia solo se cambiano i flavor).
+
+app:
+  android:
+    flavorDimensions: "env"
+
+flavors:
+  dev:
+    app:
+      name: "Poke DEV"
+    android:
+      applicationId: "it.aurora.poke_app.dev"
+    ios:
+      bundleId: "it.aurora.poke-app.dev"
+
+  staging:
+    app:
+      name: "Poke STAGING"
+    android:
+      applicationId: "it.aurora.poke_app.staging"
+    ios:
+      bundleId: "it.aurora.poke-app.staging"
+
+  prod:
+    app:
+      name: "Pokédex"
+    android:
+      applicationId: "it.aurora.poke_app"
+    ios:
+      bundleId: "it.aurora.poke-app"
+
+# Genera le configurazioni di lancio per VS Code (.vscode/launch.json).
+ide:
+  - vscode
+
+# ⚠️ Lista dei "processori" scelta a mano.
+#
+# Il set di DEFAULT di flavorizr include anche `flutter:app`, `flutter:pages` e
+# `flutter:main`: sono pensati per un progetto appena creato e SOVRASCRIVONO
+# lib/main.dart, creano lib/app.dart e una cartella lib/pages/ di esempio.
+# Su un'app già scritta come questa distruggerebbero il codice.
+#
+# Qui teniamo solo ciò che tocca il lato nativo (+ `flutter:flavors`, che
+# genera lib/flavors.dart con l'enum Flavor e la classe F). Il collegamento in
+# main.dart lo scriviamo noi.
+instructions:
+  - assets:download
+  - assets:extract
+  # --- Android ---
+  - android:androidManifest
+  - android:flavorizrGradle
+  - android:buildGradle
+  - android:dummyAssets
+  - android:icons
+  # --- Dart ---
+  - flutter:flavors
+  # --- iOS ---
+  - ios:podfile
+  - ios:xcconfig
+  - ios:buildTargets
+  - ios:schema
+  - ios:dummyAssets
+  - ios:icons
+  - ios:plist
+  - ios:launchScreen
+  # --- pulizia + IDE ---
+  - assets:clean
+  - ide:config

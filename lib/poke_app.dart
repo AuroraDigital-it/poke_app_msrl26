@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poke_app/flavors.dart';
 import 'package:poke_app/src/router/app_router.dart';
 import 'package:poke_app/theme/theme_light.dart';
 
@@ -8,7 +9,7 @@ class PokeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Async Basics',
+      title: F.title,
       debugShowCheckedModeBanner: false,
       theme: themeLight,
       routerConfig: appRouter.config(),
