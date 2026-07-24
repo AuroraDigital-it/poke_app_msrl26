@@ -32,6 +32,8 @@
 	<string>We need access to your microphone to record audio for your Pokémon.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photo library to select images of your Pokémon.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need access to Face ID to authenticate your Pokémon Trainer account.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
