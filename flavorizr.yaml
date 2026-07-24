@@ -61,7 +61,8 @@ instructions:
   # --- Dart ---
   - flutter:flavors
   # --- iOS ---
-  - ios:podfile
+  # `ios:podfile` è escluso di proposito: iOS usa Swift Package Manager, non
+  # CocoaPods. Riattivarlo ricrea ios/Podfile e reintroduce l'integrazione Pods.
   - ios:xcconfig
   - ios:buildTargets
   - ios:schema

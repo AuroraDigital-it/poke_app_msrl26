@@ -59,6 +59,32 @@ pensati per un progetto appena creato e **sovrascriverebbero `lib/main.dart`**,
 aggiungendo un `lib/app.dart` e una cartella `lib/pages/` di esempio. Su questa
 app li abbiamo esclusi, e il collegamento in `main.dart` lo abbiamo scritto noi.
 
+⚠️ Per lo stesso motivo abbiamo escluso `ios:podfile`: iOS non usa più CocoaPods
+ma **Swift Package Manager** (vedi sotto). Riattivarlo ricrea `ios/Podfile` e
+`flutter build` tornerebbe a integrare i Pods.
+
+⚠️ `ios:xcconfig` rigenera `ios/Flutter/*.xcconfig` mettendo in testa a ciascuno
+un `#include? "Pods/Target Support Files/..."`. È un include *opzionale*, quindi
+senza Pods non rompe nulla, ma va tolto a mano dopo ogni rigenerazione:
+
+```bash
+sed -i '' '/Pods\/Target Support Files/d' ios/Flutter/*.xcconfig
+```
+
+## iOS: Swift Package Manager, non CocoaPods
+
+Tutti i plugin usati dall'app sono disponibili come Swift Package, quindi il lato
+iOS è integrato via **SPM** e CocoaPods è stato rimosso: niente `Podfile`, niente
+`Podfile.lock`, niente cartella `Pods/`, e il `Runner.xcworkspace` referenzia solo
+`Runner.xcodeproj`. I package sono dichiarati nel package locale generato da
+Flutter (`ios/Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage`) e le
+versioni risolte finiscono nei due `Package.resolved` sotto `xcshareddata/swiftpm/`,
+che vanno committati.
+
+Se in futuro servisse un plugin senza supporto SPM, Flutter lo segnala in build e
+CocoaPods va reintrodotto (`flutter create -t app --platforms=ios .` rigenera un
+Podfile standard, che poi va riadattato ai flavor).
+
 ## Trappole note
 
 **1. Se dimentichi `--flavor`, l'errore non è quello che ti aspetti.**

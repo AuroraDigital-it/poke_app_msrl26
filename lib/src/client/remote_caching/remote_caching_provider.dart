@@ -9,6 +9,7 @@ Future<RemoteCaching> remoteCaching(Ref ref) async {
   await RemoteCaching.instance.init(
     defaultCacheDuration: Duration(hours: 1),
     verboseMode: kDebugMode,
+    databasePath: ':memory:',
   );
   return RemoteCaching.instance;
 }
